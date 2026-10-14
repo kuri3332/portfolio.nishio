@@ -1,0 +1,612 @@
+@charset "utf-8";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #414D3F;
+  font-family: "Yu Mincho", "YuMincho", serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Font
+========================= */
+
+/* セクションタイトル */
+.section-title {
+  font-family: "Antic Didone", serif;
+}
+
+/* ロゴ */
+.header-logo {
+    font-family: "Aboreto",serif;
+}
+/* その他の英語 */
+.en-text {
+  font-family: "Abhaya Libre", serif;
+}
+
+
+/*==========
+background
+============*/
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        135deg,
+        #F2ECE5 18%,
+        #ACBBA7 72%,
+        #ACBBA7 100%
+    );
+}
+
+
+/*==========
+ヘッダー　ロゴ
+===========*/
+
+.header-logo {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: #414D3F;
+    font-family: "Aboreto",serif;
+}
+
+.header-logo-main {
+    font-size: 32px;
+    line-height: 1;
+}
+.header-logo-sub {
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+/*==========
+ヘッダー　MENU
+===========*/
+
+.menu-button {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #414D3F;
+    background: transparent;
+    color: #414D3F;
+    font-family: "Antic Didone", serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.6em;
+
+    cursor: pointer;
+    
+}
+
+.menu-button span {
+    transform: translateX(0.3em);
+}
+
+/*==========
+FV
+===========*/
+.fv-main {
+    position: relative;
+    padding-top: 70vh;
+}
+
+.fv-content {
+    width: 100%;
+}
+
+
+/* FVコピー */
+.fv-copy {
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.fv-copy-main {
+    font-size: 24px;
+}
+.fv-copy-sub {
+    font-size: 32px;
+    margin-left: 290px;
+}
+
+/* ============
+スクロールダウン
+================ */
+
+
+.scroll {
+    margin-top: 80px;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.scroll-text {
+    writing-mode: vertical-lr;
+    font-family: "Abhaya Libre", serif;
+    font-size: 12px;
+}
+.scroll-line {
+    width: 1px;
+    height: 80px;
+    background-color: #414D3F;
+}
+
+/* サブコピー */
+.sub-copy {
+    margin-top: 80px;
+    text-align: center;
+    
+}
+
+/*==========
+ABOUT 
+===========*/
+
+.about {
+    position: relative;
+    min-height: 252px;
+    margin-top: 240px;
+    padding: 0 12% 0;
+
+}
+
+.about-title {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    color: #fbfbfb;
+}
+
+.about-content {
+    width: min(430px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.about-text {
+    font-size: 14px;
+    line-height: 2;
+}
+
+.about-text p + p {
+    margin-top: 8px;
+}
+
+.more-button {
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    padding-left: 43px;
+    width: 180px;
+    min-height: 32px;
+    margin: 40px 0 0 auto;
+    border-radius: 5px;
+    background: #F2F0EC;
+    box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
+    color: #ACBBA7;
+    font-family: "Abhaya Libre", serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* and more の右矢印 */
+.more-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.more-arrow {
+    position: absolute;
+    right: 16px;
+    width: 20px;
+    height: 1px;
+    background: #ACBBA7;
+}
+
+.more-arrow::after {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ACBBA7;
+    border-right: 1px solid #ACBBA7;
+    content: "";
+    transform: rotate(45deg);
+}
+/*=============
+works
+==============*/
+.works {
+    position: relative;
+    margin-top: 240px;
+    padding: 0 0 120px;
+}
+
+.works-title {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    color: #fbfbfb;
+}
+
+.works-content {
+    width: min(800px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.works-meta {
+    width: 100%;
+}
+
+.works-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 32px;
+    margin-bottom: 12px;
+    white-space: nowrap;
+}
+
+.works-category {
+    flex: 0 0 auto;
+    margin: 0;
+    font-family: "Antic Didone", serif;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.works-types {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 20px;
+}
+
+.works-types span {
+    color: #fbfbfb;
+    font-family: "Antic Didone", serif;
+    font-size: 16px;
+}
+
+.works-image {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 465px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.works-image img {
+    display: block;
+    width: 78%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* スライダー矢印 */
+.works-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* 矢印の2本の線 */
+.works-arrow::before,
+.works-arrow::after {
+    position: absolute;
+    content: "";
+    background: #fff;
+}
+
+/* 横線 */
+.works-arrow::before {
+    width: 28px;
+    height: 1px;
+}
+/* 縦線 */
+.works-arrow::after {
+    width: 1px;
+    height: 28px;
+}
+
+/* 左向き */
+.works-arrow-prev {
+    left: 32px;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* 右向き */
+.works-arrow-next {
+    right: 32px;
+    transform: translateY(-50%) rotate(135deg);
+}
+
+/* and more の右矢印 */
+.works-more {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.more-arrow {
+    position: absolute;
+    right: 16px;
+    width: 20px;
+    height: 1px;
+    background: #ACBBA7;
+}
+
+.more-arrow::after {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ACBBA7;
+    border-right: 1px solid #ACBBA7;
+    content: "";
+    transform: rotate(45deg);
+}
+
+
+.works-arrow-prev {
+    left: 24px;
+}
+
+.works-arrow-next {
+    right: 24px;
+}
+
+.works-caption {
+    margin: 12px 0 0;
+    text-align: right;
+}
+
+.works-more {
+    position: relative;
+    margin-top: 42px;
+    margin-right: 0;
+}
+
+/*==========
+ Service
+==========*/
+.service {
+    position: relative;
+    margin-top: 120px;
+    padding-bottom: 240px;
+}
+
+.service::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    height: 45%;
+    background: linear-gradient(110deg, #F2ECE5, #ACBBA7);
+    content: "";
+}
+
+.service-title {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    margin: 0;
+    color: #fbfbfb;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    writing-mode: vertical-rl;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: min(800px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.service-card {
+    position: relative;
+    box-sizing: border-box;
+    flex: 0 1 380px;
+    min-height: 430px;
+    padding: 80px 40px 40px;
+    background: #F2F0EC;
+    box-shadow: 0 4px 12px rgb(65 77 63 / 30%);
+}
+
+.service-number1 {
+    margin: 0;
+    text-align: left;
+    font-family: "Antic Didone", serif;
+    font-size: 48px;
+}
+
+.service-number2 {
+    margin: 0;
+    text-align: right;
+    font-family: "Antic Didone", serif;
+    font-size: 48px;
+}
+
+.service-curve-left {
+    width: calc(100% + 80px);
+    height: 42px;
+    margin: 4px 53px 16px;
+}
+
+.service-curve-right {
+    width: calc(100% + 80px);
+    height: 42px;
+    margin: 4px -40px 16px;
+}
+
+.service-curve img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.service-name {
+    margin: 0;
+    color: #98a692;
+    font-family: "Antic Didone", serif;
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.service-lead {
+    margin: 36px 0 24px;
+    font-size: 17px;
+}
+
+.service-description {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.service-details {
+    font-size: 14px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #C7D0C3;
+}
+
+.service-details p {
+    font-size: 13px;
+    margin: 0 0 16px;
+}
+
+.service-details ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.service-details li::before {
+    content: "・";
+}
+
+/*============
+contact
+=============*/
+.contact {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-title {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    margin: 0;
+    color: #fbfbfb;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+}
+
+.contact-content {
+    width: min(100%, 0);
+    margin-inline: auto;
+}
+
+.contact-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 300px);
+    min-height: 64px;
+    margin: 40px auto 0;
+    border-radius: 5px;
+    background: #ACBBA7;
+    box-shadow: 0 4px 10px rgb(65 77 63 / 25%);
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+}
+/*
+.copyright {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    color: #414D3F;
+    font-family: "Abhaya Libre", serif;
+    font-size: 10px;
+    transform: translateX(-50%);
+}*/
+
+.footer {
+    position: relative;
+    padding-top: 140px;
+    text-align: center;
+}
+
+.copyright {
+    display: block;
+    margin: 0;
+    font-size: 10px;
+}

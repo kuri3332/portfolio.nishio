@@ -1,0 +1,347 @@
+@charset "utf-8";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #414D3F;
+  font-family: "Yu Mincho", "YuMincho", serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Font
+========================= */
+
+/* セクションタイトル */
+.section-title {
+  font-family: "Antic Didone", serif;
+}
+
+/* ロゴ */
+.header-logo {
+    font-family: "Aboreto",serif;
+}
+/* その他の英語 */
+.en-text {
+  font-family: "Abhaya Libre", serif;
+}
+
+
+/*==========
+background
+============*/
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        135deg,
+        #F2ECE5 18%,
+        #ACBBA7 72%,
+        #ACBBA7 100%
+    );
+}
+
+
+/*==========
+ヘッダー　ロゴ
+===========*/
+
+.header-logo {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: #414D3F;
+    font-family: "Aboreto",serif;
+}
+
+.header-logo-main {
+    font-size: 32px;
+    line-height: 1;
+}
+.header-logo-sub {
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+/*==========
+ヘッダー　MENU
+===========*/
+
+.menu-button {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #414D3F;
+    background: transparent;
+    color: #414D3F;
+    font-family: "Antic Didone", serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.6em;
+
+    cursor: pointer;
+    
+}
+
+.menu-button span {
+    transform: translateX(0.3em);
+}
+
+/*=================
+works セクション名
+==================*/
+.all-works {
+    position: relative;
+    padding-top: 140px;
+}
+
+.all-works-title {
+    margin: 0;
+    color: #7C8978;
+    font-family: "Antic Didone", serif;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.works-category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 96px;
+    margin-top: 80px;
+}
+
+.works-category-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #7C8978;
+    font-family: "Antic Didone", serif;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.works-category-nav a span {
+    font-size: 12px;
+}
+
+.works-group {
+    position: relative;
+    width: min(800px, calc(100% - 64px));
+    margin: 100px auto 0;
+}
+
+.works-group-title {
+    position: absolute;
+    top: 0;
+    left: -80px;
+    margin: 0;
+    white-space: nowrap;
+    color: #FAFDFA;
+    font-family: "Antic Didone", serif;
+    font-size: 64px;
+    font-weight: 400;
+    writing-mode: vertical-rl;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 160px;
+    row-gap: 100px;
+    padding: 40px 0 0 40px
+}
+
+.works-card {
+    display: block;
+    color: #414D3F;
+    text-decoration: none;
+}
+
+.works-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.works-card p {
+    margin: 24px 0 8px;
+    text-align: right;
+}
+
+.works-card small {
+    display: block;
+    font-size: 12px;
+    text-align: right;
+}
+
+
+/*=================
+footer
+=================*/
+.detail-footer {
+    position: relative;
+    z-index: 1;
+    padding: 140px 0 28px;
+}
+
+.detail-footer-nav {
+    display: flex;
+    justify-content: space-between;
+    width: min(100% - 320px, 1080px);
+    margin: 0 160px;
+    color: #7C8978;
+    font-size: 24px;
+}
+
+/* ==================
+左のAll Works の矢印　
+=====================*/
+.detail-allworks {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 丸の配置の要素 */
+.detail-allworks-icon {
+    position: relative;
+    display: block;
+    flex: 0 0 50px;
+    height: 35px;
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: o;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
+}
+
+
+/*=========
+右のHome 矢印
+============ */
+.detail-home {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.detail-home-icon {
+  transform: scaleX(-1);
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
+}
+
+
+.detail-contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    min-height: 80px;
+    margin: 40px auto 0;
+    background: #acbba7;
+    box-shadow: 0 4px 10px rgb(65 77 63 / 25%);
+    color: #fff;
+    font-size: 18px;
+}
+/*  コピーライト */
+.detail-copyright {
+    display: block;
+    margin-top: 48px;
+    font-family: "Abhaya Libre", serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+

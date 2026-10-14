@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #414D3F;
+  font-family: "Yu Mincho", "YuMincho", serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Font
+========================= */
+
+/* セクションタイトル */
+.section-title {
+  font-family: "Antic Didone", serif;
+}
+
+/* ロゴ */
+.header-logo {
+    font-family: "Aboreto",serif;
+}
+/* その他の英語 */
+.en-text {
+  font-family: "Abhaya Libre", serif;
+}
+
+
+/*==========
+background
+============*/
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        135deg,
+        #F2ECE5 18%,
+        #ACBBA7 72%,
+        #ACBBA7 100%
+    );
+}
+
+
+/*==========
+ヘッダー　ロゴ
+===========*/
+
+.header-logo {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: #414D3F;
+    font-family: "Aboreto",serif;
+}
+
+.header-logo-main {
+    font-size: 32px;
+    line-height: 1;
+}
+.header-logo-sub {
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+/*==========
+ヘッダー　MENU
+===========*/
+
+.menu-button {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #414D3F;
+    background: transparent;
+    color: #414D3F;
+    font-family: "Antic Didone", serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.6em;
+
+    cursor: pointer;
+    
+}
+
+.menu-button span {
+    transform: translateX(0.3em);
+}
+
+
+.thanks-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh; 
+}
+
+.thanks-section {
+    padding-top: 240px;
+    text-align: center;
+}
+
+.thanks-message {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 140px;
+    text-align: left;
+}
+
+.thanks-title {
+    margin-bottom: 120px;
+    color: #7c897c;
+    font-family: "Antic Didone", serif;
+    font-size: 48px;
+    font-weight: 400;
+}
+
+
+.thanks-home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*padding-left: 43px;*/
+    width: 180px;
+    min-height: 32px;
+    margin: 40px auto 0;
+    border-radius: 5px;
+    background: #F2F0EC;
+    box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
+    color: #ACBBA7;
+    font-family: "Abhaya Libre", serif;
+    font-size: 14px;
+    text-decoration: none;
+
+    position: relative;
+  
+
+
+}
+
+/* and more の右矢印 
+
+*/
+.home-arrow {
+    position: absolute;
+    right: 16px;
+    width: 20px;
+    height: 1px;
+    background: #ACBBA7;
+}
+
+.home-arrow::after {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ACBBA7;
+    border-right: 1px solid #ACBBA7;
+    content: "";
+    transform: rotate(45deg);
+}
+
+
+.thanks-copyright {
+    display: block;
+    margin: 140px 0 28px;
+}

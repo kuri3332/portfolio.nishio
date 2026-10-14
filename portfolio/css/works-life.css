@@ -1,0 +1,331 @@
+@charset "utf-8";
+
+
+.detail-main {
+    position: relative;
+    z-index: 1;
+}
+
+.detail-hero {
+    padding-top: 220px;
+}
+
+.detail-hero-image {
+    width: min(880px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.detail-hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.detail-title {
+    width: min(600px, calc(100% - 48px));
+    margin: 80px auto 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(199, 208, 195, 1);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.detail-info {
+    width: min(600px, calc(100% - 48px));
+    margin: 24px auto 0;
+    padding-bottom: 140px;
+}
+
+.detail-info dl {
+    display: grid;
+    gap: 24px;
+}
+
+.detail-info-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 80px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.detail-info-row dt {
+    color: #444d3f;
+}
+
+.detail-info-row dd {
+    margin: 0;
+}
+
+.detail-fullvisual {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto 0;
+    padding: 140px 0;
+    background: #f7f7f7;
+}
+
+.detail-fullvisual img {
+    /*width: main(640px, 100%); */
+    width: 57.14%;
+    margin-inline: auto;
+}
+/*===============
+footer
+===============*/
+.detail-footer {
+    position: relative;
+    z-index: 1;
+    padding: 140px 0 28px;
+}
+
+.detail-footer-nav {
+    display: flex;
+    justify-content: space-between;
+    width: min(100% - 320px, 1080px);
+    margin: 0 160px;
+    color: #7C8978;
+    font-size: 24px;
+}
+
+
+.detail-allworks {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 丸の配置の要素 */
+.detail-allworks-icon {
+    position: relative;
+    display: block;
+    flex: 0 0 50px;
+    height: 35px;
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: o;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
+}
+
+/* Home 矢印 */
+.detail-home {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail-home-icon {
+  transform: scaleX(-1);
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: o;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
+}
+
+
+.detail-contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    min-height: 80px;
+    margin: 40px auto 0;
+    background: #acbba7;
+    box-shadow: 0 4px 10px rgb(65 77 63 / 25%);
+    color: #fff;
+    font-size: 18px;
+}
+/*  コピーライト */
+.detail-copyright {
+    display: block;
+    margin-top: 48px;
+    font-family: "Abhaya Libre", serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+
+
+
+/* works websaite */
+.detail-fullvisual-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+    width: min(820px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.detail-fullvisual-pair img {
+    width: 100%;
+    height: auto;
+}
+
+
+/*  バナー　 hamburger */
+.banner-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 100px;
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto 0;
+    padding: 80px 100px 120px;
+    background: #f7f7f7;
+}
+
+.banner-variation-title {
+    margin: 0 0 26px;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: "Abhaya Libre", serif;
+    text-align: center;
+}
+
+.banner-variation-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+}
+
+.banner-art-square {
+    width: min(250px, 100%);
+}
+
+.banner-art-wide {
+    width: min(410px, 100%);
+}
+
+.banner-variation-items img {
+    display: block;
+    height: auto;
+}
+
+/* バナー　ice */
+.banner-gallery-single {
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+}
+.single-banner-art {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+}
+
+/* card/logo YUZU */
+.yuzu-gallery {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto ;
+    padding: 0 14.3% 100px;
+    background: #f7f7f7;
+}
+
+.yuzu-gallery-block,
+.yuzu-leaflet {
+    width: 100%;
+}
+
+.yuzu-gallery-title {
+    /*margin: 0 0 32px;*/
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    font-family: "Abhaya Libre", serif;
+    padding: 80px 0 32px;
+}
+
+.yuzu-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 12.5%;
+}
+
+.yuzu-card-grid img {
+    display: block;
+    width: min(350px, 100%);
+    margin-inline: auto;
+}
+
+
+
+
+
+.yuzu-leaflet-image-top {
+    width: min(650px, 100%);
+    margin: 0 auto;
+}
+
+.yuzu-leaflet-image-bottom {
+    width: min(650px, 100%);
+    margin: 36px auto 0;
+}
