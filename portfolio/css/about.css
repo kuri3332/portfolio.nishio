@@ -283,8 +283,6 @@ background
 }
 
 
-
-
 /*=================
 footer
 =================*/
@@ -295,11 +293,118 @@ footer
 }
 
 .detail-footer-nav {
+    display: flex;
     justify-content: space-between;
     width: min(100% - 320px, 1080px);
     margin: 0 160px;
     color: #7C8978;
     font-size: 24px;
+}
+
+/* ==================
+左のAll Works の矢印　
+=====================*/
+.detail-allworks {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 丸の配置の要素 */
+.detail-allworks-icon {
+    position: relative;
+    display: block;
+    flex: 0 0 50px;
+    height: 35px;
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: o;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
+}
+
+
+/*=========
+右のHome 矢印
+============ */
+.detail-home {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.detail-home-icon {
+  transform: scaleX(-1);
+}
+
+.detail-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ACBBA7;
+    border-radius: 50%;
+    content: "";
+}
+
+/* 丸の中央から右に伸びる線 */
+.arrow-allworks-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-allworks-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #acbba7;
+    content: "";
+    transform: rotate(-45deg);
+    transform-origin: 0.5px 50%;
 }
 
 
@@ -318,7 +423,7 @@ footer
 /*  コピーライト */
 .detail-copyright {
     display: block;
-    margin-top: 160px;
+    margin-top: 48px;
     font-family: "Abhaya Libre", serif;
     font-size: 10px;
     text-align: center;
@@ -326,3 +431,151 @@ footer
 
 
 
+
+/* sp */
+@media (max-width: 767px) {
+
+    .header-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .header-logo-main {
+        font-size: 20px;
+    }
+
+    .header-logo-sub {
+        font-size: 12px;
+    }
+
+    .menu-button {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .fv-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        width: fit-content;
+        max-width: calc(100% - 40px);
+        margin-inline: auto;
+    }
+
+    .fv-copy-main {
+        font-size: 18px;
+    }
+
+    .fv-copy-sub {
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 24px;
+    }
+
+}
+
+/* sp */
+    @media (max-width: 767px) {
+        .about-intro {
+            padding-top: 140px;
+        }
+
+        .about-page-title {
+            margin-bottom: 80px;
+        }
+
+        .about-profile {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .about-profile-info img {
+            width: 160px;
+        }
+
+        .about-text {
+            width: calc(100% - 80px);
+            margin: 80px auto 0;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        .service-intro {
+            margin-top: 80px;
+        }
+        .service-page-title {
+            margin: 80px auto;
+        }
+
+/* service */
+    .service-title {
+        left: 0;
+        font-size: 96px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: calc(100% - 80px);
+        padding-top: 24px;
+    }
+
+    .service-card {
+        flex: none;
+        width: 100%;
+        min-height: 622px;
+        padding: 80px 24px 40px;
+    }
+
+    .service {
+        margin-top: 140px;
+        padding-bottom: 0;
+
+    }
+
+    .service-lead {
+    font-size: 16px;
+    }
+
+/* footer */
+    
+
+    .detail-footer {
+        padding: 0;
+    }
+
+    .detail-footer-nav {
+        box-sizing: border-box;
+        width: 100%;
+        height: 24px;
+        margin: 80px 0 0 0;
+        padding-right: 40px;
+        justify-content: flex-end;
+        font-size: 16px;
+    }
+
+    .detail-contact-button {
+        width: 172px;
+        min-height: 34px;
+        margin: 36px auto 0;
+        font-size: 12px;
+    }
+
+    .detail-copyright {
+        margin: 40px 0 20px;
+    }
+
+
+
+}

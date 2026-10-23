@@ -19,35 +19,35 @@
 
 <body>
     <!-- 背景 -->
-     <div class="background"></div>
+    <div class="background"></div>
 
     <!-- ヘッダー -->
-     <header class="header">
+    <header class="header">
 
     <!-- ロゴ -->
         <a href="#" class="header-logo">
             <span class="header-logo-main">SLOW DESIGN</span>
             <span class="header-logo-sub">PORTFOLIO</span>
         </a>
-     
+    
     <!-- メニュー -->    
-        <button class="menu-button" type="button">
+        <a class="menu-button" href="menu.html" aria-label="メニューを開く">
             <span>ME</span>
             <span>NU</span>
-        </button>
-     </header>
+        </a>
+    </header>
 
-     <main>
+    <main>
     <!-- FV -->
         <section class="fv-main">
             <div class="fv-content">
             <div class="fv-copy">
-                <P class="fv-copy-main">「何を伝えたいか分からない」から、</P>
-                <P class="fv-copy-sub">一緒に。</P>
+                <p class="fv-copy-main">「何を伝えたいか分からない」から、</p>
+                <p class="fv-copy-sub">一緒に。</p>
             </div>
 
     <!-- スクロールダウン -->
-         <!--  <div class="scroll-area"> -->
+    <!--  <div class="scroll-area"> -->
                 <div class="scroll">
                     <div class="scroll-text">scroll down</div>
                     <div class="scroll-line"></div>
@@ -55,22 +55,15 @@
 
                 <!-- sub copy -->
                 <div class="sub-copy">
-                    <p>伝えたいことを見つけるところから、</p>
-                    <p>伝わるカタチにするまで。</p>
+                    <p class="text-reveal">伝えたいことを見つけるところから、</p>
+                    <p class="text-reveal">伝わるカタチにするまで。</p>
                 </div>
 
             </div>
-         </section>
-
-<!--
-                <div class="sub-copy">
-                    <p>伝えたいことを見つけるところから、</p>
-                    <p>伝わるカタチにするまで。</p>
-                </div>
--->
+        </section>
 
     <!-- about -->
-     <section class="about">
+    <section class="about">
         <h2 class="section-title about-title">About</h2>
         <div class="about-content">
             <div class="about-text">
@@ -81,20 +74,21 @@
                     そして、見つけた「伝えたい」を、どう伝えるかまで考え、カタチにしていきます。
                 </p>
             </div>
-        </div>
+    
         <!-- and more ボタン -->       
-            <a href="#" class="more-button about-more">and more<span class="more-arrow" aria-hidden="true"></span></a>
-     </section>
+            <a href="about.html" class="more-button about-more">and more<span class="more-arrow" aria-hidden="true"></span></a>
+        </div>
+    </section>
 
-     <!-- Works -->
-     <section class="works">
+    <!-- Works -->
+    <section class="works">
         <h2 class="section-title works-title">Works</h2>
         <div class="works-content">
             <div class="works-meta">
                 <div class="works-heading">
-                    <h3 class="works-category">Webdesign</h3>
 
                     <div class="works-types" aria-label="作品カテゴリー">
+                        <span>Webdesign</span>
                         <span>Website</span>
                         <span>Banner</span>
                         <span>Card / Logo</span>
@@ -105,22 +99,25 @@
                     <button class="works-arrow works-arrow-prev" type="button" 
                     aria-label="前の作品"></button>
 
-                    <img src="images/mokup-04.png" alt="美容室　LIFE design のWebサイト">
+                    <img 
+                        id="works-slide-image"
+                        src="images/mokup-04.png" 
+                        alt="美容室　LIFE design のWebサイト">
 
                     <button class="works-arrow works-arrow-next" type="button" 
                     aria-label="次の作品"></button>
                 </div>
 
-                <p class="works-caption">美容室「LIFE hair design」</p>
+                <p class="works-caption" id="works-slide-caption">美容室「LIFE hair design」</p>
 
-                <a href="#" class="more-button works-more">and more<span class="more-arrow" aria-hidden="true"></span>
+                <a href="all-works.html" class="more-button works-more">and more<span class="more-arrow" aria-hidden="true"></span>
                 </a>
             </div>
         </div>
-     </section>
+    </section>
 
-     <!--  Service -->
-       <section class="service">
+    <!--  Service -->
+    <section class="service">
         <h2 class="section-title service-title">Service</h2>
 
         <div class="service-cards">
@@ -164,32 +161,121 @@
                 </div>
             </article>
         </div>
-       </section>
+    </section>
 
-       <!--  contact -->
-       <section class="contact">
+    <!--  contact -->
+    <section class="contact">
         <h2 class="section-title contact-title">Contact</h2>
         <div class="contact-content">
             <p>
                 ご質問・ご相談からでもお気軽にご連絡ください。<br>必須項目をご入力の上、下記フォームよりお問い合わせください。
             </p>
 
-        <a class="contact-button" href="#">
+        <a class="contact-button" href="contact.html">
             お問い合わせはこちら
         </a>
         </div>
 
-       </section>
+    </section>
 
-       <footer class="footer">
-         <small class="copyright">©️2026 SLOW DESIGN</small>
-       </footer>
-
-
+    <footer class="footer">
+        <small class="copyright">©️2026 SLOW DESIGN</small>
+    </footer>
 
 
 
-     </main>
+
+
+    </main>
     
+
+    <script>
+        const worksSlides = [
+            {
+                src: "images/mokup-04.png",
+                alt: "美容室 「LIFE hair design design」",
+                caption: "美容室「LIFE hair design 」",
+                category: "Webdesign"
+            },
+            {
+                src: "images/mokup-05.png",
+                alt: "カフェ DESIGN CAFE のWebサイト",
+                caption: "カフェ 「DESIGN CAFE」",
+                category: "Website"
+            },
+            {
+                src: "images/mokup-01.png",
+                alt: "ハンバーガーショップの新商品広告バナー",
+                caption: "ハンバーガーショップ 新商品広告バナー",
+                category: "Banner"
+            },
+            {
+                src: "images/mokup-07.png",
+                alt: "Sauna resort YUZU",
+                caption: "Sauna resort 「YUZU」",
+                category: "Card / Logo"
+            }
+        ];
+
+        let currentWorksIndex = 0;
+
+        const worksImage = document.querySelector("#works-slide-image");
+        const worksCaption = document.querySelector("#works-slide-caption");
+        const prevButton = document.querySelector(".works-arrow-prev");
+        const nextButton = document.querySelector(".works-arrow-next");
+        const worksTypes = document.querySelectorAll(".works-types span");
+    
+
+        function showWorksSlide(index) {
+            worksImage.src = worksSlides[index].src;
+            worksImage.alt = worksSlides[index].alt;
+            worksCaption.textContent = worksSlides[index].caption;
+            
+            worksTypes.forEach((type) => {
+                type.classList.toggle(
+                    "is-active",
+                    type.textContent.trim() === worksSlides[index].category
+                );
+            });
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentWorksIndex =
+                (currentWorksIndex - 1 + worksSlides.length) % worksSlides.length;
+                showWorksSlide(currentWorksIndex);
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentWorksIndex = 
+                (currentWorksIndex + 1) % worksSlides.length;
+            showWorksSlide(currentWorksIndex);
+        });
+
+
+
+
+        document.documentElement.classList.add("js");
+
+        const textElements = document.querySelectorAll(".text-reveal");
+
+        const textObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        textElements.forEach((element) => {
+            textObserver.observe(element);
+        });
+
+    </script>
+
+
+
 </body>
 </html>

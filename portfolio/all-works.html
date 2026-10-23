@@ -31,23 +31,37 @@
         </a>
      
     <!-- メニュー -->    
-        <button class="menu-button" type="button">
+        <a class="menu-button" href="menu.html" aria-label="メニューを開く">
             <span>ME</span>
             <span>NU</span>
-        </button>
+        </a>
      </header>
 
      <main class="all-works">
         <section class="works-index">
             <h1 class="all-works-title">Works</h1>
 
-            <nav class="works-category-nav" aria-label="作品カテゴリー">
+    <!-- SP版での開閉ボタン -->
+     <div class="works-category-row">
+            <button class="sp-category-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="works-category-menu">
+            ALL <span aria-hidden="true">></span>
+        </button>
+
+
+    <!-- PC版カテゴリー -->
+            <nav class="works-category-nav" 
+            id="works-category-menu"
+            aria-label="作品カテゴリー">
                 <a href="#all">All<span>すべて</span></a>
-                <a href="#webdesign">Web design<span>Webデザイン</span></a>
+                <a href="#web-design">Web design<span>Webデザイン</span></a>
                 <a href="#website">Web site<span>Webサイト</span></a>
                 <a href="#banner">Banner<span>バナー</span></a>
-                <a href="#card/logo">Card/Logo<span>名刺/ロゴ</span></a>
+                <a href="#card-logo">Card/Logo<span>名刺/ロゴ</span></a>
             </nav>
+            </div>
         </section>
 
         <section class="works-group" id="web-design">
@@ -139,7 +153,17 @@
         <small class="detail-copyright">©️2026 SLOW DESIGN</small>
     </footer>
 
+    
+    <script>
+        const categoryToggle = document.querySelector(".sp-category-toggle");
+        const categoryMenu = document.querySelector("#works-category-menu");
 
-        
+        categoryToggle.addEventListener("click", () => {
+            const isOpen = categoryToggle.getAttribute("aria-expanded") === "true";
+
+            categoryToggle.setAttribute("aria-expanded", String(!isOpen));
+            categoryMenu.classList.toggle("is-open", !isOpen);
+        });
+    </script>
 </body>
 </html>

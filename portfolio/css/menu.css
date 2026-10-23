@@ -14,7 +14,7 @@ body {
 
 
 /* =========================
-   Font
+  Font
 ========================= */
 
 /* セクションタイトル */
@@ -55,7 +55,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 14px;
+    box-sizing: border-box;
     justify-content: center;
 
     border: 1px solid #F2f0ec;
@@ -79,6 +81,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 64px;
+    margin: 120px 0;
 }
 
 .menu-nav a {
@@ -86,4 +89,33 @@ body {
     font-family: "Antic Didone", serif;
     font-size: 32px;
     text-decoration: none;
+}
+
+
+/* sp */
+@media (max-width: 767px) {
+
+    .menu-close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+        padding-left: 8px;
+    }
+
+    .menu-page {
+      min-height: 100vh;
+    }
+
+    .menu-nav {
+      gap: 40px;
+    }
+
+    .menu-nav a {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+
 }

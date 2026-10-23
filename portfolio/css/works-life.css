@@ -318,8 +318,6 @@ footer
 
 
 
-
-
 .yuzu-leaflet-image-top {
     width: min(650px, 100%);
     margin: 0 auto;
@@ -328,4 +326,139 @@ footer
 .yuzu-leaflet-image-bottom {
     width: min(650px, 100%);
     margin: 36px auto 0;
+}
+
+
+
+/* sp */
+@media (max-width: 767px) {
+    .detail-hero {
+    padding-top: 140px;
+    }
+
+    .detail-title {
+        margin: 24px 20px 0;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .detail-info {
+        margin-top: 32px;
+        padding-bottom: 72px;
+    }
+
+    .detail-info dl {
+        gap: 24px;
+    }
+
+    .detail-info-row {
+        grid-template-columns: 72px 1fr;
+        gap: 32px;
+        font-size: 14px;
+    }
+
+    .detail-fullvisual {
+        width: calc(100% - 40px);
+        padding: 40px 0;
+    }
+
+    .detail-fullvisual img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .detail-footer {
+        padding: 80px 0 20px;
+    }
+
+    .detail-footer-nav {
+        width: calc(100% - 40px);
+        margin-inline: auto;
+        font-size: 16px;
+    }
+/*
+    .detail-contact-button {
+        width: calc(100% - 40px);
+        min-height: 60px;
+        font-size: 16px;
+    }
+        */
+    .detail-allworks-icon {
+        height: 26px;
+    }
+
+    .arrow-allworks-icon {
+        left: 8px;
+    }
+
+    .detail-allworks-icon::before {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
+    .detail-contact-button {
+        width: 172px;
+        min-height: 34px;
+        margin: 40px auto 0;
+        font-size: 12px;
+    }
+
+    .detail-copyright {
+        margin-top: 40px;
+    }
+
+
+    /* banner */
+    .banner-gallery {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        width: calc(100% - 40px);
+        padding: 32px 40px;
+    }
+
+    .banner-variation-title {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .banner-variation-items {
+        gap: 20px;
+    }
+
+    .banner-art-square {
+        width: min(188px, 100%);
+    }
+
+    .banner-art-wide {
+        width: 100%;
+    }
+
+
+    /* card */
+    .yuzu-gallery {
+        width: calc(100% - 40px);
+        padding: 0 40px 32px;
+    }
+
+    .yuzu-gallery-title {
+        font-size: 16px;
+        padding: 32px 0 20px;
+    }
+
+    .yuzu-card-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .yuzu-card-grid img {
+        width: min(270px, 100%);
+    }
+
+    .detail-allworks {
+        gap: 10px;
+    }
+
 }

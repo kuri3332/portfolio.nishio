@@ -2,14 +2,14 @@
 
 
 html {
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-  color: #414D3F;
-  font-family: "Yu Mincho", "YuMincho", serif;
-  font-weight: 400;
-  line-height: 1.7;
+color: #444d3f;
+font-family: "Yu Mincho", "YuMincho", serif;
+font-weight: 400;
+line-height: 1.7;
 }
 
 
@@ -19,7 +19,7 @@ body {
 
 /* セクションタイトル */
 .section-title {
-  font-family: "Antic Didone", serif;
+font-family: "Antic Didone", serif;
 }
 
 /* ロゴ */
@@ -28,7 +28,7 @@ body {
 }
 /* その他の英語 */
 .en-text {
-  font-family: "Abhaya Libre", serif;
+font-family: "Abhaya Libre", serif;
 }
 
 
@@ -101,7 +101,7 @@ background
     letter-spacing: 0.6em;
 
     cursor: pointer;
-    
+    z-index: 10;
 }
 
 .menu-button span {
@@ -139,8 +139,6 @@ FV
 /* ============
 スクロールダウン
 ================ */
-
-
 .scroll {
     margin-top: 80px;     
     display: flex;
@@ -155,9 +153,43 @@ FV
     font-size: 12px;
 }
 .scroll-line {
+    position: relative;
+    overflow: hidden;
     width: 1px;
     height: 80px;
-    background-color: #414D3F;
+    background-color: #C7D0C3;
+}
+
+.scroll-line::after {
+    position: absolute;
+    inset: 0;
+    background-color: #444d3f;
+    content: "";
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: scroll-line-flow 2.5s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes scroll-line-flow {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    50.1% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
 }
 
 /* サブコピー */
@@ -166,6 +198,34 @@ FV
     text-align: center;
     
 }
+
+/* サブコピーの動き*/
+.text-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 2.8s ease, transform 2.8s ease;
+}
+
+.js .text-reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.sub-copy .text-reveal:nth-child(2) {
+    transition-delay: 2.0s;
+}
+
+@media (prefers-reduced-motuon: reduce) {
+    .text-reveal {
+        transition: none;
+        transition-delay: 0s;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+
+
 
 /*==========
 ABOUT 
@@ -192,13 +252,18 @@ ABOUT
 }
 
 .about-content {
-    width: min(430px, calc(100% - 40px));
+    width: min(800px, calc(100% - 40px));
     margin-inline: auto;
 }
 
 .about-text {
+    width: fit-content;
+    max-width: 100%;
     font-size: 14px;
+    margin-inline: auto;
+    text-align: left;
     line-height: 2;
+    letter-spacing: 2%;
 }
 
 .about-text p + p {
@@ -249,13 +314,38 @@ ABOUT
     content: "";
     transform: rotate(45deg);
 }
+
+
+/* ホバー時に色変える */
+.more-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.more-arrow,
+.more-arrow::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.more-button:hover {
+    background-color: #ACBBA7;
+    color: #fff;
+}
+
+.more-button:hover .more-arrow {
+    background-color: #fff;
+}
+.more-button:hover .more-arrow::after {
+    border-color: #fff;
+}
+
+
+
 /*=============
 works
 ==============*/
 .works {
     position: relative;
     margin-top: 240px;
-    padding: 0 0 120px;
 }
 
 .works-title {
@@ -300,12 +390,21 @@ works
     display: flex;
     flex: 0 0 auto;
     gap: 20px;
+    align-items: flex-end;
 }
 
 .works-types span {
     color: #fbfbfb;
     font-family: "Antic Didone", serif;
     font-size: 16px;
+    display: inline-block;
+    line-height: 1;
+}
+
+.works-types span.is-active {
+    color: #444d3f;
+    font-size: 2em;
+    transform-origin: center bottom;
 }
 
 .works-image {
@@ -418,11 +517,11 @@ works
 }
 
 /*==========
- Service
+Service
 ==========*/
 .service {
     position: relative;
-    margin-top: 120px;
+    margin-top: 240px;
     padding-bottom: 240px;
 }
 
@@ -588,16 +687,7 @@ contact
     font-size: 15px;
     text-decoration: none;
 }
-/*
-.copyright {
-    position: absolute;
-    bottom: 140px;
-    left: 50%;
-    color: #414D3F;
-    font-family: "Abhaya Libre", serif;
-    font-size: 10px;
-    transform: translateX(-50%);
-}*/
+
 
 .footer {
     position: relative;
@@ -609,4 +699,196 @@ contact
     display: block;
     margin: 0;
     font-size: 10px;
+}
+
+
+
+/* sp */
+@media (max-width: 767px) {
+
+    .header-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .header-logo-main {
+        font-size: 20px;
+    }
+
+    .header-logo-sub {
+        font-size: 12px;
+    }
+
+    .menu-button {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .fv-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        width: fit-content;
+        max-width: calc(100% - 40px);
+        margin-inline: auto;
+    }
+
+    .fv-copy-main {
+        font-size: 18px;
+    }
+
+    .fv-copy-sub {
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 24px;
+    }
+/* About */
+    .about {
+        position: relative;
+        margin-top: 160px;
+    }
+
+    .about-title {
+        position: absolute;
+        left: 0;
+        font-size: 96px;
+        z-index: 0;
+    }
+    .about-content {
+        width: 100%;
+        max-width: none;
+        padding-top: 24px;
+    }
+
+    .about-text {
+        position: relative;
+        width: auto;
+        text-align: left;
+        z-index: 1;
+    }
+
+    .more-button {
+        margin: 120px auto 0;
+    }
+
+/* Works */
+    .works {
+        margin-top: 140px;
+    }
+
+    .works-title {
+        position: absolute;
+        left: 0;
+        font-size: 96px;
+    }
+
+    .works-content {
+        padding-top: 24px;
+    }
+
+    .works-types {
+    gap: 16px;
+    }
+
+    .works-types span {
+    font-size: 12px;
+    }
+
+    .works-types span.is-active {
+    font-size: 16px;
+    }
+
+    .worka-content {
+        width: calc(100% - 80px);
+    }
+    
+    .works-image {
+        min-height: 0;
+    }
+
+    .works-image img {
+        width: 100%;
+    }
+
+    .works-more {
+        margin: 42px auto 0;
+    }
+
+    .works-arrow::before {
+        width: 13px
+    }
+
+    .works-arrow::after {
+    height: 13px;
+    }
+
+    .works-more {
+        margin: 100px auto 0;
+}
+
+/* service */
+    .service-title {
+        left: 0;
+        font-size: 96px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: calc(100% - 80px);
+        padding-top: 24px;
+    }
+
+    .service-card {
+        flex: none;
+        width: 100%;
+        min-height: 622px;
+        padding: 80px 24px 40px;
+    }
+
+    .service {
+        margin-top: 140px;
+        padding-bottom: 0;
+
+    }
+
+    .service-lead {
+    font-size: 16px;
+}
+
+/* contact */
+    .contact-title {
+        position: absolute;
+        left: 0;
+        font-size: 96px;
+        margin-top: 100px;
+        z-index: 0;
+    }
+
+    .contact-content {
+        padding-top: 124px;
+}
+
+    .contact-content p {
+        position: relative;
+        font-size: 13px;
+        max-width: 310px;
+        z-index: 1;
+    }
+
+
+
+@media (max-width: 480px) {
+    .fv-copy-main {
+        font-size: 16px;
+    }
+
+
+
+    }
 }

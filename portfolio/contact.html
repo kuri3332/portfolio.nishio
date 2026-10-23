@@ -31,10 +31,10 @@
             <span class="header-logo-sub">PORTFOLIO</span>
         </a>
      <!-- メニュー -->    
-        <button class="menu-button" type="button">
+        <a class="menu-button" href="menu.html" aria-label="メニューを開く">
             <span>ME</span>
             <span>NU</span>
-        </button>
+        </a>
      </header>
 
      <main class="contact-page">
@@ -70,68 +70,53 @@
 
 
 
-        
-
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdoiLpD3fXv5haR5wC8ptfSIsdyK8Q71gZ0hZzi2zhSCZ-kMg/formResponse" target="_self" method="POST" id="mG61Hd" >
-
+        <section class="contact-form-section">
+            <h2 class="contact-form-title">お問い合わせ</h2>
+            <form class="contact-form" 
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdoiLpD3fXv5haR5wC8ptfSIsdyK8Q71gZ0hZzi2zhSCZ-kMg/formResponse" 
+            target="_self" 
+            method="POST">
+     
 
             <div class="c-form__item">
                 <label class="c-form__label" for="field-name">お名前</label>
-                <input name="entry.118535771" class="c-form_input" id="field-name" placeholder="山田　太郎" type="text" required="required">
+                <input name="entry.118535771" class="c-form_input" id="field-name" placeholder="山田　太郎" type="text" required>
             </div>
         
             <div class="c-form__item">
-                <label class="c-form__label" for="field-name">フリガナ</label>
-                <input name="entry.1180064934" class="c-form_input" id="field-name" placeholder="ヤマダ　タロウ" type="text" required="required">
+                <label class="c-form__label" for="field-furigana">フリガナ</label>
+                <input name="entry.1180064934" class="c-form_input" id="field-furigana" placeholder="ヤマダ　タロウ" type="text" required>
             </div>
 
             <div class="c-form__item">
                 <label class="c-form__label" for="field-mail">メールアドレス</label>
-                <input name="entry.4063409" class="c-form_input" id="field-mail" placeholder="user@example.com" type required="required">
+                <input name="entry.4063409" class="c-form_input" id="field-mail" placeholder="user@example.com" type="email" required>
             </div>
 
             <div class="c-form__item">
                 <label class="c-form__label" for="field-message">お問い合わせ 内容</label>
-                <textarea name="entry.1386046591" class="c-form_input02" id="field-massage" placeholder="お気軽にお問い合わせください。">
+                <textarea name="entry.1386046591" class="c-form_input02" id="field-message" placeholder="お気軽にお問い合わせください。" required></textarea>
             </div>
 
             <div class="c-form__submit">
                 <button type="submit">送信する</button>
             </div>
         </form>
+    </section>
 
-     </main>
-<!--
-        <section class="contact-from-section">
-            <h2 class="contact-from-title">お問い合わせ</h2>
 
-            <form class="contact-form">
-                <div class="contact-form-field">
-                    <label for="name">お名前 <spann>必須</spann></label>
-                    <input id="name" name="name" type="text" placeholder="山田　太郎" required>
-                </div>
 
-                <div class="contact-form-field">
-                    <label for="furigana">フリガナ <spann>必須</spann></label>
-                    <input id="furigana" name="furigana" type="text" placeholder="ヤマダ　タロウ" required>
-                </div>
+            <!-- home ボタン -->
+            
+         
+            <a href="index.html" class="thanks-home-button thanks-home">home<span class="home-arrow" aria-hidden="true"></span></a>
 
-                <div class="contact-form-field">
-                    <label for="e-mail">E-mail <spann>必須</spann></label>
-                    <input id="e-mail" name="e-mail" type="text" placeholder="user@example.com" required>
-                </div>
 
-                <div class="contact-form-field">
-                    <label for="message">お問い合わせ<spann>必須</spann></label>
-                    <textarea id="message" name="message" rows="6" placeholder="お気軽にお問い合わせください。" required>
-                </div>
-
-                <button type="submit">送信</button>
-            </form>
--->
-
+             <small class="thanks-copyright">©️2026 SLOW DESIGN</small>
         </section>
-
-
-
+        
+        
      </main>
+</body>
+</html>
+

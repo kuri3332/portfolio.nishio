@@ -23,17 +23,26 @@
     <!-- メニュー -->    
       
      <main class="menu-page">
-        <a class="menu-close" href="index.html" aria-label="メニューを閉じる">
+        <!--
+        <a class="menu-close" href="index.html" 
+        onclick="if (document.referrer && new URL(document.referrer).origin === location.origin) { history.back();
+            return false;
+        }"
+        aria-label="メニューを閉じる">-->
+
+        <a class="menu-close" href="index.html"
+        onclick="if (history.length > 1) { history.back(); return false; }"
+        aria-label="メニューを閉じる">
                 <span>CLO</span>
                 <span>SE</span>
         </a>
 
         <nav class="menu-nav" aria-label="メインメニュー">
             <a href="index.html">Home</a>
-            <a href="index.html">About</a>
+            <a href="about.html">About</a>
             <a href="all-works.html">Works</a>
-            <a href="index.html#service">Service</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="about.html#service">Service</a>
+            <a href="contact.html">Contact</a>
         </nav>
 
 

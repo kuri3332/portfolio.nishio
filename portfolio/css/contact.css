@@ -175,7 +175,7 @@ contact title
 }
 
 .delivery-steps h3 {
-    margin: 0 0 16px;
+    margin-bottom: 16px;
     font-size: 20px;
     font-weight: 400;
 }
@@ -188,5 +188,286 @@ contact title
 
 
 
+.contact-form-section {
+    box-sizing: border-box;
+    width: min(800px, calc(100% - 48px));
+    min-height: 894px;
+    margin-inline: auto;
+    padding: 120px 40px 64px;
+    background: #f7f7f7;
+    border-radius: 20px;
+}
 
-<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdoiLpD3fXv5haR5wC8ptfSIsdyK8Q71gZ0hZzi2zhSCZ-kMg/formResponse" target="_self" method="POST" id="mG61Hd" 
+.contact-form-title {
+    margin-bottom: 58px;
+    text-align: center;
+    font-size: 32px;
+    color: #7c897c;
+    font-weight: 400;
+}
+
+.contact-form {
+    width: min(640px, 100%);
+    margin-inline: auto;
+}
+
+.c-form__item {
+    margin-bottom: 24px;
+}
+
+.c-form__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #7c897c;
+    font-size: 16px;
+}
+
+.c-form__label::after {
+    content: "必須";
+    padding: 4px 11px;
+    border-radius: 3px;
+    background: #ACBBA7;
+    color: #fff;
+    font-size: 12px;
+}
+
+.c-form_input,
+.c-form_input02 {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D3D9D1;
+    border-radius: 5px;
+    background: #F2F0EC;
+    color: #414d3f;
+    font-size: 16px;
+    
+}
+
+.c-form_input02 {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.c-form_input::placeholder,
+.c-form_input02::placeholder {
+    color: #acacac;
+    font-size: 16px;
+}
+
+.c-form__submit {
+    margin-top: 64px;
+    text-align: center;
+}
+
+
+.c-form__submit button {
+    min-width: 120px;
+    padding: 10px 24px;
+    border: 0;
+    border-radius: 5px;
+    background: #ACBBA7;
+    box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
+    color: #fff;
+    font: inherit;
+    cursor:pointer
+}
+
+
+
+/* homeボタン */
+.thanks-home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    min-height: 32px;
+    margin: 140px auto 0;
+    border-radius: 5px;
+    background: #F2F0EC;
+    box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
+    color: #ACBBA7;
+    font-family: "Abhaya Libre", serif;
+    font-size: 14px;
+    text-decoration: none;
+
+    position: relative;
+  
+}
+
+/* and more の右矢印 
+
+*/
+.home-arrow {
+    position: absolute;
+    right: 16px;
+    width: 20px;
+    height: 1px;
+    background: #ACBBA7;
+}
+
+.home-arrow::after {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ACBBA7;
+    border-right: 1px solid #ACBBA7;
+    content: "";
+    transform: rotate(45deg);
+}
+
+
+.thanks-copyright {
+    display: block;
+    margin: 140px auto 28px;
+    text-align: center;
+}
+
+
+
+/* sp */
+@media (max-width: 767px) {
+
+    .header-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .header-logo-main {
+        font-size: 20px;
+    }
+
+    .header-logo-sub {
+        font-size: 12px;
+    }
+
+    .menu-button {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .fv-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        width: fit-content;
+        max-width: calc(100% - 40px);
+        margin-inline: auto;
+    }
+
+    .fv-copy-main {
+        font-size: 18px;
+    }
+
+    .fv-copy-sub {
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 24px;
+    }
+
+    .contact-page-title {
+        margin: 140px auto 80px;
+        text-align: center;
+    }
+
+    .delivery-title {
+        margin: 80px auto 40px;
+    }
+
+    .delivery-steps {
+        width: calc(100% - 80px);
+        margin-inline: auto;
+        gap: 8px;
+    }
+
+    .delivery-steps li {
+        position: relative;
+        padding-left: 60px;
+    }
+
+    .delivery-steps h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .delivery-steps p {
+        font-size: 13px;
+    }
+
+    .delivery-steps li::before {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .contact-section {
+    padding: 0;
+    }
+
+
+    .contact-form-section {
+        box-sizing: border-box;
+        width: min(326px, calc(100% - 64px));
+        min-height: 498px;
+        margin: 80px auto 0;
+        padding: 40px 28px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    c-form__item {
+    margin-bottom: 16px;
+    }
+    .contact-form-title {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .c-form__label {
+        font-size: 14px;
+    }
+
+    .c-form__label::after {
+    padding: 2px 8px;
+    font-size: 12px;
+    }
+
+    .c-form_input, .c-form_input02 {
+        font-size: 14px;
+        padding: 5px 8px 5px 8px;
+    }
+
+
+
+
+    .c-form__submit {
+    margin: 40px auto 0;
+    }
+
+    .c-form__submit button {
+    padding: 5px 19px;
+    font-size: 14px;
+    }
+
+
+
+
+    .thanks-home-button {
+        margin-top: 80px;
+    }
+
+    .thanks-copyright {
+        margin: 80px 0 20px;
+    }
+}

@@ -2,24 +2,23 @@
 
 
 html {
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-  color: #414D3F;
-  font-family: "Yu Mincho", "YuMincho", serif;
-  font-weight: 400;
-  line-height: 1.7;
+color: #414D3F;
+font-family: "Yu Mincho", "YuMincho", serif;
+foline-height: 1.7;
 }
 
 
 /* =========================
-   Font
+    Font
 ========================= */
 
 /* セクションタイトル */
 .section-title {
-  font-family: "Antic Didone", serif;
+font-family: "Antic Didone", serif;
 }
 
 /* ロゴ */
@@ -28,7 +27,7 @@ body {
 }
 /* その他の英語 */
 .en-text {
-  font-family: "Abhaya Libre", serif;
+font-family: "Abhaya Libre", serif;
 }
 
 
@@ -114,6 +113,11 @@ works セクション名
 .all-works {
     position: relative;
     padding-top: 140px;
+}
+
+/* spアコーディオン */
+.sp-category-toggle {
+    display: none;
 }
 
 .all-works-title {
@@ -274,14 +278,14 @@ footer
 右のHome 矢印
 ============ */
 .detail-home {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
 }
 
 .detail-home-icon {
-  transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .detail-allworks-icon::before {
@@ -344,4 +348,190 @@ footer
 }
 
 
+/* sp */
+@media (max-width: 767px) {
+
+    .header-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .header-logo-main {
+        font-size: 20px;
+    }
+
+    .header-logo-sub {
+        font-size: 12px;
+    }
+
+    .menu-button {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .fv-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        width: fit-content;
+        max-width: calc(100% - 40px);
+        margin-inline: auto;
+    }
+
+    .fv-copy-main {
+        font-size: 18px;
+    }
+
+    .fv-copy-sub {
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 24px;
+    }
+
+/* spアコーディオン */
+    .sp-allworks-accordion {
+        display: block;
+    }
+
+    .sp-category-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .sp-category-toggle span {
+        transition: transform 0.25s;
+    }
+
+    .works-category-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .works-category-nav {
+        display: flex;
+        flex: 0 1 0;
+        gap: 24px;
+        min-width: 0;
+        max-height: none;
+        margin-top: 0;
+        align-items: center;
+        overflow: hidden;
+        opacity: 0;
+        white-space: nowrap;
+        transition: flex-basis 0.25s, opacity 0.25s;
+    }   
+
+    .works-category-nav.is-open {
+        flex-basis: 100%;
+        opacity: 1;
+    }   
+
+    .works-category-nav a {
+        flex: 0 0 auto;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .works-category-nav a span {
+        display: none;
+    }
+
+    .works-category-nav a[href="#all"] {
+        display: none;
+    }
+
+    .sp-category-toggle[aria-expanded="true"] span {
+        transform: rotate(90deg);
+    }
+
+
+
+
+
+
+
+
+    .works-group {
+        margin-top: 40px;
+    }
+
+
+/* タイトル */
+
+    .all-works-title {
+        margin-bottom: 60px;
+    }
+    .works-group-title {
+        left: -70px;
+        font-size: 64px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+        padding-top: 40px;
+    }
+
+
+/* footer */
+    .detail-footer {
+        padding: 0;
+    }
+
+    .detail-home {
+        gap: 10px;
+    }
+
+    .detail-footer-nav {
+        box-sizing: border-box;
+        width: calc(100% - 80px);
+        height: 24px;
+        margin: 80px 0 0 0;
+        padding-right: 40px;
+        justify-content: flex-end;
+        font-size: 16px;
+    }
+
+    .detail-contact-button {
+        width: 172px;
+        min-height: 34px;
+        margin: 36px auto 0;
+        font-size: 12px;
+    }
+
+    .detail-copyright {
+        margin: 40px 0 20px;
+    }
+
+
+
+}
+
+
+@media (max-width: 480px) {
+
+    .works-category-nav a {
+        flex: 0 0 auto;
+        font-size: 11px;
+    }
+
+    .sp-category-toggle {
+        font-size: 11px;
+    }
+
+
+}
 
