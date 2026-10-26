@@ -231,6 +231,7 @@ contact title
     background: #ACBBA7;
     color: #fff;
     font-size: 12px;
+    line-height: 1;
 }
 
 .c-form_input,
@@ -273,7 +274,15 @@ contact title
     box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
     color: #fff;
     font: inherit;
-    cursor:pointer
+    cursor:pointer;
+
+    transition: background-color 0.3s ease, color 0.3s;
+}
+
+
+.c-form__submit button:hover {
+    background-color: #7C8978;
+    color: #F2F0EC;
 }
 
 
@@ -295,8 +304,15 @@ contact title
     text-decoration: none;
 
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s;
   
 }
+
+.thanks-home-button:hover {
+    background-color: #7C8978;
+    color: #F2F0EC;
+}
+
 
 /* and more の右矢印 
 

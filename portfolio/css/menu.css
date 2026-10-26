@@ -66,8 +66,19 @@ body {
     font-size: 14px;
     line-height: 1;
     letter-spacing: 0.3em;
+
+    transition: background-color 0.3s ease, color 0.3s, border-color 0.3s ease;
     
 }
+
+
+.menu-close:hover,
+.munu-close:focus-visible {
+    background-color: #7C8978;
+    border-color: #7C8978;
+    color: #F2F0EC;
+}
+
 
 .menu-close-text {
     display: flex;
@@ -89,8 +100,13 @@ body {
     font-family: "Antic Didone", serif;
     font-size: 32px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.menu-nav a:hover,
+.menu-nav a:focus-visible {
+  color:#7C8978;
+}
 
 /* sp */
 @media (max-width: 767px) {

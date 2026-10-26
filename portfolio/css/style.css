@@ -102,6 +102,14 @@ background
 
     cursor: pointer;
     z-index: 10;
+    transition: background-color 0.3s ease, color 0..3s, border-color 0.3s ease;
+}
+
+.menu-button:hover,
+.munu-button:focus-visible {
+    background-color: #7C8978;
+    border-color: #7C8978;
+    color: #F2F0EC;
 }
 
 .menu-button span {
@@ -327,15 +335,15 @@ ABOUT
 }
 
 .more-button:hover {
-    background-color: #ACBBA7;
-    color: #fff;
+    background-color: #7C8978;
+    color: #F2F0EC;
 }
 
 .more-button:hover .more-arrow {
     background-color: #fff;
 }
 .more-button:hover .more-arrow::after {
-    border-color: #fff;
+    border-color: #F2F0EC;
 }
 
 
@@ -581,15 +589,29 @@ Service
 }
 
 .service-curve-left {
-    width: calc(100% + 80px);
+    width: 100%;
     height: 42px;
-    margin: 4px 53px 16px;
+    margin: 4px 0 16px;
+    margin-left: 52px;
+}
+
+@media screen and (max-width: 890px) {
+    .service-curve-left {
+        margin-left: 40px;
+    }
 }
 
 .service-curve-right {
-    width: calc(100% + 80px);
+     width: 100%;
     height: 42px;
-    margin: 4px -40px 16px;
+    margin: 4px 0 16px;
+    margin-left: -40px;
+}
+
+@media screen and (max-width: 890px) {
+    .service-curve-right {
+        margin-left: -40px;
+    }
 }
 
 .service-curve img {
@@ -689,6 +711,17 @@ contact
 }
 
 
+/* ホバー時に色変える */
+.contact-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #7C8978;
+    color: #F2F0EC;
+}
+
+
 .footer {
     position: relative;
     padding-top: 140px;
@@ -699,6 +732,113 @@ contact
     display: block;
     margin: 0;
     font-size: 10px;
+}
+
+
+/* =============
+ローディング画面
+================ */
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #ACBBA7;
+    color: #F2F0EC;
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    width: min(280px, 70vw);
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+.loader-logo {
+    margin-bottom: 12px;
+    font-family: "Aboreto",serif;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.loader-percent {
+    margin-bottom: 8px;
+    font-family: "Antic Didone", serif;
+    font-size: 128px;
+    line-height: 1;
+}
+
+.loader-bar {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background: #7C8978;
+}
+
+.loader-bar span {
+    position: relative;
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #F2F0EC;
+    transition: width 0.1s linear;
+}
+
+.loader-bar span::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #F2F0EC;
+    box-shadow: 0 0 10px 4px rgba(242, 240, 236, 0.7);
+    content: "";
+    transform: translate(50%, -50%);
+}
+
+.loader-mist {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.loader-mist span {
+    position: absolute;
+    width: 20vmax;
+    height: 20vmax;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.78);
+    filter: blur(35px);
+    opacity: 0;
+    transform: scale(0.65);
+}
+
+
+.site-loader.is-revealing .loader-content {
+    opacity: 0;
+}
+
+.site-loader.is-revealing .loader-mist span {
+    animation: loader-circle-float 0.8s ease-out forwards;
+}
+
+@keyframes loader-circle-float {
+    to {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.site-loader.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2.5s ease, visibility 0s linear 2.5s;
 }
 
 
@@ -860,6 +1000,16 @@ contact
     .service-lead {
     font-size: 16px;
 }
+
+
+    .service-curve-left {
+        margin-left: -24px;
+    }
+
+    .service-curve-right {
+        margin-left: -24px;
+    }
+
 
 /* contact */
     .contact-title {

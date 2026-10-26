@@ -18,6 +18,26 @@
 </head>
 
 <body>
+    <!-- ローディング -->
+     <div class="site-loader" id="site-loader">
+        <div class="loader-content">
+            <p class="loader-logo">SLOW DESIGN</p>
+            <p class="loader-percent"></p>
+            <div class="loader-bar">
+                <span></span>
+            </div>
+        </div>
+
+        <div class="loader-mist" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+     </div>
+
+
     <!-- 背景 -->
     <div class="background"></div>
 
@@ -179,7 +199,7 @@
     </section>
 
     <footer class="footer">
-        <small class="copyright">©️2026 SLOW DESIGN</small>
+        <small class="copyright">&copy;2026 SLOW DESIGN</small>
     </footer>
 
 
@@ -273,6 +293,61 @@
             textObserver.observe(element);
         });
 
+
+
+        const loader = document.getElementById("site-loader");
+
+        if (loader) {
+            const alreadyShown = 
+            sessionStorage.getItem("slowDesignLoaderPlayed") === "true";
+
+            if (alreadyShown) {
+                loader.classList.add("is-hidden");
+            } else {
+                sessionStorage.setItem("slowDesignLoaderPlayed", "true");
+
+                const percentText = loader.querySelector(".loader-percent");
+                const progressBar = loader.querySelector(".loader-bar span");
+                const duration = 1800;
+                let startTime;
+                
+                const circles = loader.querySelectorAll(".loader-mist span");
+
+                circles.forEach((circle, index) => {
+                    const size = 30 + Math.random()* 20;
+
+                    circle.style.width = `${size}vmax`;
+                    circle.style.height = `${size}vmax`;
+                    circle.style.left = `${Math.random() * 70}%`;
+                    circle.style.top = `${Math.random() * 70}%`;
+                    circle.style.animationDelay = `${index * 0.4}s`;
+                });
+
+                function updateProgress(time) {
+                    if (!startTime) startTime = time;
+
+                    const progress = Math.min((time - startTime) / duration, 1);
+                    const value = Math.floor(progress * 100);
+
+                    percentText.textContent = `${value}%`;
+                    progressBar.style.width = `${value}%`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateProgress);
+                    } else {
+                        setTimeout(() => {
+                        loader.classList.add("is-revealing");
+
+                        setTimeout(()  => {
+                            loader.classList.add("is-hidden");
+                        }, 2000);
+                        }, 1300);
+                    }
+                }
+
+                requestAnimationFrame(updateProgress);
+            }
+        }
     </script>
 
 

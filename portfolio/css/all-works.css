@@ -8,7 +8,7 @@ scroll-behavior: smooth;
 body {
 color: #414D3F;
 font-family: "Yu Mincho", "YuMincho", serif;
-foline-height: 1.7;
+line-height: 1.7;
 }
 
 
@@ -174,7 +174,7 @@ works セクション名
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 160px;
     row-gap: 100px;
-    padding: 40px 0 0 40px
+    padding: 40px 0 0 40px;
 }
 
 .works-card {
@@ -282,7 +282,15 @@ footer
     align-items: center;
     gap: 12px;
     margin-left: auto;
+    color: #7C8978;
+    transition: color 0.3s ease;
 }
+
+.detail-home:hover,
+.detail-home:focus-visible {
+    color: #F2F0EC;
+}
+
 
 .detail-home-icon {
     transform: scaleX(-1);
@@ -297,6 +305,14 @@ footer
     border: 1px solid #ACBBA7;
     border-radius: 50%;
     content: "";
+    border-color: currentColor;
+    transition: border-color 0.3s ease;
+}
+
+.detail-home .arrow-allworks-icon,
+.detail-home .arrow-allworks-icon::before {
+    background-color: currentColor;
+    transition: background-color 0.3s ease;
 }
 
 /* 丸の中央から右に伸びる線 */
@@ -337,7 +353,18 @@ footer
     box-shadow: 0 4px 10px rgb(65 77 63 / 25%);
     color: #fff;
     font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s;
 }
+
+.detail-contact-button:hover {
+    background-color: #7C8978;
+    color: #F2F0EC;
+}
+
+
+
+
 /*  コピーライト */
 .detail-copyright {
     display: block;
