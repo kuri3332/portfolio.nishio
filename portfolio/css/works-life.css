@@ -234,7 +234,7 @@ footer
     color: #fff;
     font-size: 18px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s;
 }
 
 .detail-contact-button:hover {
@@ -242,6 +242,10 @@ footer
     color: #F2F0EC;
 }
 
+.detail-contact-button:hover,
+.detail-contact-button:focus-visible {
+    transform: scale(1.05);
+}
 
 /*  コピーライト */
 .detail-copyright {

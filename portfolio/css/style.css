@@ -326,7 +326,8 @@ ABOUT
 
 /* ホバー時に色変える */
 .more-button {
-    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .more-arrow,
@@ -344,6 +345,11 @@ ABOUT
 }
 .more-button:hover .more-arrow::after {
     border-color: #F2F0EC;
+}
+
+.more-button:hover,
+.more-button:focus-visible {
+    transform: scale(1.05);
 }
 
 
@@ -711,9 +717,9 @@ contact
 }
 
 
-/* ホバー時に色変える */
+/* ホバー時に色変える・Zoom */
 .contact-button {
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .contact-button:hover {
@@ -734,6 +740,10 @@ contact
     font-size: 10px;
 }
 
+.contact-button:hover,
+.contact-button:focus-visible {
+    transform: scale(1.05);
+}
 
 /* =============
 ローディング画面

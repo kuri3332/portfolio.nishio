@@ -276,7 +276,7 @@ contact title
     font: inherit;
     cursor:pointer;
 
-    transition: background-color 0.3s ease, color 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s;
 }
 
 
@@ -285,7 +285,10 @@ contact title
     color: #F2F0EC;
 }
 
-
+.c-form__submit button:hover,
+.c-form__submit button:focus-visible {
+    transform: scale(1.05);
+}
 
 /* homeボタン */
 .thanks-home-button {
@@ -304,7 +307,7 @@ contact title
     text-decoration: none;
 
     position: relative;
-    transition: background-color 0.3s ease, color 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s;
   
 }
 
@@ -313,6 +316,10 @@ contact title
     color: #F2F0EC;
 }
 
+.thanks-home-button:hover,
+.thanks-home-button:focus-visible {
+    transform: scale(1.05);
+}
 
 /* and more の右矢印 
 

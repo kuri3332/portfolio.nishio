@@ -45,7 +45,7 @@
     <header class="header">
 
     <!-- ロゴ -->
-        <a href="#" class="header-logo">
+        <a class="header-logo" href="index.html" aria-label="ホームを開く">
             <span class="header-logo-main">SLOW DESIGN</span>
             <span class="header-logo-sub">PORTFOLIO</span>
         </a>
@@ -95,7 +95,7 @@
                 </p>
             </div>
     
-        <!-- and more ボタン -->       
+        <!-- and more ボタン --> 
             <a href="about.html" class="more-button about-more">and more<span class="more-arrow" aria-hidden="true"></span></a>
         </div>
     </section>
@@ -302,6 +302,7 @@
             sessionStorage.getItem("slowDesignLoaderPlayed") === "true";
 
             if (alreadyShown) {
+       
                 loader.classList.add("is-hidden");
             } else {
                 sessionStorage.setItem("slowDesignLoaderPlayed", "true");
