@@ -48,6 +48,77 @@ background
     );
 }
 
+/* 霞んだ丸 */
+.background span {
+    position: absolute;
+    display: block;
+    width: 34vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fbfbfb;
+    filter: blur(22px);
+    opacity: 0.45;
+    animation: background-mist-float 2s ease-in-out infinite alternate;
+}
+
+/* 丸の初期位置と大きさをそれぞれかえる */
+.background span:nth-child(1) {
+    top: -25%;
+    left: -7%;
+}
+
+.background span:nth-child(2) {
+    top: 41%;
+    right: 8%;
+    width: 20vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(3) {
+    top: 47%;
+    right: 27%;
+    width: 50vw;
+    animation-delay: -4s;
+}
+
+.background span:nth-child(4) {
+    top: -8%;
+    right: -4%;
+    width: 18vw;
+    animation-delay: -1s;
+}
+
+.background span:nth-child(5) {
+    top: 1%;
+    right: 18%;
+    width: 36vw;
+    animation-delay: -3s;
+}
+
+.background span:nth-child(6) {
+    top: 37%;
+    right: 59%;
+    width: 24vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(7) {
+    top: 76%;
+    right: -9%;
+    width: 26vw;
+    animation-delay: -4s;
+}
+
+@keyframes background-mist-float {
+    from {
+        transform: translate(0, 0) scale(0.85);
+    }
+
+    to {
+        transform:translate(22px, -18px) scale(1.15s);
+    }
+}
+
 
 /*==========
 ヘッダー　ロゴ
@@ -501,17 +572,13 @@ footer
         transform: rotate(90deg);
     }
 
-
-
-
-
-
-
-
     .works-group {
         margin-top: 40px;
     }
 
+    .works-card p {
+        font-size: 4vw;
+    }
 
 /* タイトル */
 
@@ -550,10 +617,10 @@ footer
     }
 
     .detail-contact-button {
-        width: 172px;
-        min-height: 34px;
+        width: 240px;
+        min-height: 50px;
         margin: 36px auto 0;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .detail-copyright {
@@ -569,11 +636,11 @@ footer
 
     .works-category-nav a {
         flex: 0 0 auto;
-        font-size: 11px;
+        font-size: 3vw;
     }
 
     .sp-category-toggle {
-        font-size: 11px;
+        font-size: 14px;
     }
 
 

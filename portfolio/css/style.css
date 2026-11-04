@@ -40,6 +40,7 @@ background
     position: fixed;
     inset: 0;
     z-index: 0;
+    overflow: hidden;
 
     background: linear-gradient(
         135deg,
@@ -49,6 +50,76 @@ background
     );
 }
 
+/* 霞んだ丸 */
+.background span {
+    position: absolute;
+    display: block;
+    width: 34vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fbfbfb;
+    filter: blur(22px);
+    opacity: 0.45;
+    animation: background-mist-float 2s ease-in-out infinite alternate;
+}
+
+/* 丸の初期位置と大きさをそれぞれかえる */
+.background span:nth-child(1) {
+    top: -25%;
+    left: -7%;
+}
+
+.background span:nth-child(2) {
+    top: 41%;
+    right: 8%;
+    width: 20vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(3) {
+    top: 47%;
+    right: 27%;
+    width: 50vw;
+    animation-delay: -4s;
+}
+
+.background span:nth-child(4) {
+    top: -8%;
+    right: -4%;
+    width: 18vw;
+    animation-delay: -1s;
+}
+
+.background span:nth-child(5) {
+    top: 1%;
+    right: 18%;
+    width: 36vw;
+    animation-delay: -3s;
+}
+
+.background span:nth-child(6) {
+    top: 37%;
+    right: 59%;
+    width: 24vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(7) {
+    top: 76%;
+    right: -9%;
+    width: 26vw;
+    animation-delay: -4s;
+}
+
+@keyframes background-mist-float {
+    from {
+        transform: translate(0, 0) scale(0.85);
+    }
+
+    to {
+        transform:translate(22px, -18px) scale(1.15s);
+    }
+}
 
 /*==========
 ヘッダー　ロゴ
@@ -204,14 +275,14 @@ FV
 .sub-copy {
     margin-top: 80px;
     text-align: center;
-    
+    font-size: 20px;
 }
 
 /* サブコピーの動き*/
 .text-reveal {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 2.8s ease, transform 2.8s ease;
+    transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .js .text-reveal:not(.is-visible) {
@@ -220,7 +291,7 @@ FV
 }
 
 .sub-copy .text-reveal:nth-child(2) {
-    transition-delay: 2.0s;
+    transition-delay: 0.7s;
 }
 
 @media (prefers-reduced-motuon: reduce) {
@@ -277,6 +348,21 @@ ABOUT
 .about-text p + p {
     margin-top: 8px;
 }
+/* ふわっと　*/
+.advanced {
+    --ease-out-puint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+
+    opacity: 0;
+    translate: 0 13%;
+    transition: opacity 2.2s var(--ease-out-cubic),
+    translate 2.2s var(--ease-out-puint);
+}
+
+.advanced.isActive {
+    opacity: 1;
+    translate: 0 0;
+}
 
 .more-button {
     display: flex;
@@ -284,14 +370,14 @@ ABOUT
     /*justify-content: center;*/
     padding-left: 43px;
     width: 180px;
-    min-height: 32px;
+    min-height: 36px;
     margin: 40px 0 0 auto;
     border-radius: 5px;
     background: #F2F0EC;
     box-shadow: 0 3px 8px rgb(65 77 63 / 25%);
-    color: #ACBBA7;
+    color: #7C8978;
     font-family: "Abhaya Libre", serif;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -308,7 +394,7 @@ ABOUT
     right: 16px;
     width: 20px;
     height: 1px;
-    background: #ACBBA7;
+    background: #7C8978;
 }
 
 .more-arrow::after {
@@ -317,8 +403,8 @@ ABOUT
     right: 0;
     width: 8px;
     height: 8px;
-    border-top: 1px solid #ACBBA7;
-    border-right: 1px solid #ACBBA7;
+    border-top: 1px solid #7C8978;
+    border-right: 1px solid #7C8978;
     content: "";
     transform: rotate(45deg);
 }
@@ -495,17 +581,17 @@ works
     right: 16px;
     width: 20px;
     height: 1px;
-    background: #ACBBA7;
+    background: #7C8978;
 }
 
 .more-arrow::after {
     position: absolute;
     top: -4px;
-    right: 0;
-    width: 8px;
-    height: 8px;
-    border-top: 1px solid #ACBBA7;
-    border-right: 1px solid #ACBBA7;
+    right: 1px;
+    width: 9px;
+    height: 9px;
+    border-top: 1px solid #7C8978;
+    border-right: 1px solid #7C8978;
     content: "";
     transform: rotate(45deg);
 }
@@ -576,7 +662,7 @@ Service
     flex: 0 1 380px;
     min-height: 430px;
     padding: 80px 40px 40px;
-    background: #F2F0EC;
+    background: #f2f0ecc7;
     box-shadow: 0 4px 12px rgb(65 77 63 / 30%);
 }
 
@@ -597,18 +683,27 @@ Service
 .service-curve-left {
     width: 100%;
     height: 42px;
-    margin: 4px 0 16px;
-    margin-left: 52px;
+    margin: 4px 0 16px 41px;
 }
 
-@media screen and (max-width: 890px) {
+.service-curve-left img {
+    max-width: none;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
     .service-curve-left {
         margin-left: 40px;
     }
+    .service-curve-left img {
+        max-width: 100%;
+        width: auto;
+    }
+
 }
 
 .service-curve-right {
-     width: 100%;
+    width: 100%;
     height: 42px;
     margin: 4px 0 16px;
     margin-left: -40px;
@@ -702,6 +797,7 @@ contact
 }
 
 .contact-button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -712,7 +808,7 @@ contact
     background: #ACBBA7;
     box-shadow: 0 4px 10px rgb(65 77 63 / 25%);
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -856,6 +952,70 @@ contact
 /* sp */
 @media (max-width: 767px) {
 
+.background span {
+    width: 34vw;
+    filter: blur(22px);
+    animation-duration: 2s;
+}
+
+    .background span:nth-child(1) {
+    top: -5%;
+    left: 0%;
+}
+
+.background span:nth-child(2) {
+    top: 33%;
+    right: 8%;
+    width: 48vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(3) {
+    top: 47%;
+    right: 18%;
+    width: 78vw;
+    animation-delay: -4s;
+}
+
+.background span:nth-child(4) {
+    top: 0%;
+    right: 0%;
+    width: 18vw;
+    animation-delay: -1s;
+}
+
+.background span:nth-child(5) {
+    top: 1%;
+    right: 18%;
+    width: 54vw;
+    animation-delay: -3s;
+}
+
+.background span:nth-child(6) {
+    top: 39%;
+    right: 69%;
+    width: 37vw;
+    animation-delay: -2s;
+}
+
+.background span:nth-child(7) {
+    top: 76%;
+    right: -9%;
+    width: 47vw;
+    animation-delay: -4s;
+}
+
+@keyframes background-mist-float {
+    from {
+        transform: translate(0, 0) scale(0.85);
+    }
+
+    to {
+        transform:translate(22px, -18px) scale(1.15s);
+    }
+}
+
+
     .header-logo {
         top: 20px;
         left: 20px;
@@ -896,6 +1056,10 @@ contact
         margin-right: 0;
         font-size: 24px;
     }
+
+    .sub-copy {
+        font-size: 16px;
+    }
 /* About */
     .about {
         position: relative;
@@ -904,8 +1068,8 @@ contact
 
     .about-title {
         position: absolute;
-        left: 0;
-        font-size: 96px;
+        left: -23px;
+        font-size: 20vw;
         z-index: 0;
     }
     .about-content {
@@ -932,8 +1096,8 @@ contact
 
     .works-title {
         position: absolute;
-        left: 0;
-        font-size: 96px;
+        left: -23px;
+        font-size: 20vw;
     }
 
     .works-content {
@@ -982,15 +1146,15 @@ contact
 
 /* service */
     .service-title {
-        left: 0;
-        font-size: 96px;
+        left: -23px;
+        font-size: 20vw;
     }
 
     .service-cards {
         flex-direction: column;
         align-items: center;
         gap: 40px;
-        width: calc(100% - 80px);
+        width: calc(100% - 40px);
         padding-top: 24px;
     }
 
@@ -1024,8 +1188,8 @@ contact
 /* contact */
     .contact-title {
         position: absolute;
-        left: 0;
-        font-size: 96px;
+        left: -23px;
+        font-size: 20vw;
         margin-top: 100px;
         z-index: 0;
     }

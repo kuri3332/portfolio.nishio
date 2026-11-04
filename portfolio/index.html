@@ -39,7 +39,15 @@
 
 
     <!-- 背景 -->
-    <div class="background"></div>
+    <div class="background" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <!-- ヘッダー -->
     <header class="header">
@@ -87,7 +95,7 @@
         <h2 class="section-title about-title">About</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>「何を伝えたらいいか分からない」<br>
+                <p class="about-text advanced">「何を伝えたらいいか分からない」<br>
                     そんなところから、一緒に考えたいと思っています。<br>
                     まずは、今抱えている悩みや想いを聞かせてください。<br>
                     お話をしながら、何を伝えたいのかを一緒に整理していきます。<br>
@@ -259,6 +267,8 @@
             });
         }
 
+        showWorksSlide(currentWorksIndex);
+
         prevButton.addEventListener("click", () => {
             currentWorksIndex =
                 (currentWorksIndex - 1 + worksSlides.length) % worksSlides.length;
@@ -349,6 +359,25 @@
                 requestAnimationFrame(updateProgress);
             }
         }
+
+
+        
+        const aboutTexts = document.querySelectorAll(".advanced");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("isActive");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        aboutTexts.forEach((text) => {
+            observer.observe(text);
+        });
     </script>
 
 
