@@ -50,6 +50,36 @@ background
     );
 }
 
+.background span {
+    translate: 0 0;
+    transition: transform 2.6s ease, opacity 2.6s ease;
+}
+
+.background.mist-hidden span {
+    animation: mist-flow-up 7s ease-in forwards;
+}
+
+.background.mist-hidden span:nth-child(1) { transition-delay: 0s; }
+.background.mist-hidden span:nth-child(2) { transition-delay: 0.5s; }
+.background.mist-hidden span:nth-child(3) { transition-delay: 1s; }
+.background.mist-hidden span:nth-child(4) { transition-delay: 1.5s; }
+.background.mist-hidden span:nth-child(5) { transition-delay: 2s; }
+.background.mist-hidden span:nth-child(6) { transition-delay: 2.5s; }
+.background.mist-hidden span:nth-child(7) { transition-delay: 3s; }
+
+@keyframes mist-flow-up {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 0.45;
+    }
+
+    to {
+        transform: translateY(-110vh) scale(0.9);
+        opacity: 0;
+    }
+}
+
+
 /* 霞んだ丸 */
 .background span {
     position: absolute;
@@ -117,7 +147,7 @@ background
     }
 
     to {
-        transform:translate(22px, -18px) scale(1.15s);
+        transform:translate(22px, -18px) scale(1.15);
     }
 }
 
@@ -367,7 +397,6 @@ ABOUT
 .more-button {
     display: flex;
     align-items: center;
-    /*justify-content: center;*/
     padding-left: 43px;
     width: 180px;
     min-height: 36px;
@@ -852,7 +881,7 @@ contact
     place-items: center;
     overflow: hidden;
     background: #ACBBA7;
-    color: #F2F0EC;
+    color: #f2f0ecc7;
 }
 
 .loader-content {
@@ -946,6 +975,62 @@ contact
     pointer-events: none;
     transition: opacity 2.5s ease, visibility 0s linear 2.5s;
 }
+
+
+
+
+/* TOPページのアニメーション開始 */
+body.home-page .fv-copy-main,
+body.home-page .fv-copy-sub,
+body.home-page .header-logo,
+body.home-page .menu-button {
+    opacity: 0;
+}
+
+body.home-page .fv-copy-main,
+body.home-page .fv-copy-sub {
+    filter: blur(12px);
+}
+
+body.home-page .header-logo {
+    transform: translateX(-40px);
+}
+
+body.home-page .menu-button {
+    transform: translateX(40px);
+}
+
+body.home-page.fv-animations-started .fv-copy-main {
+    animation: fv-copy-reveal 1.8s ease-out forwards;
+}
+
+body.home-page.fv-animations-started .fv-copy-sub {
+    animation: fv-copy-reveal 1.6s ease-out 1.8s forwards;
+}
+
+body.home-page.fv-animations-started .header-logo,
+body.home-page.fv-animations-started .menu-button {
+    animation: fv-header-enter 0.9s ease-out 3.5s forwards;
+}
+
+@keyframes fv-copy-reveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes fv-header-enter {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
 
 
 

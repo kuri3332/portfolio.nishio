@@ -15,9 +15,11 @@
 <!-- Title -->
     <title>SLOW DESIGN PORTFOLIO</title>
 
+<!-- favicon -->
+    <link rel="icon" href="images/favicon.png">
 </head>
 
-<body>
+<body class="home-page">
     <!-- ローディング -->
      <div class="site-loader" id="site-loader">
         <div class="loader-content">
@@ -308,13 +310,18 @@
         const loader = document.getElementById("site-loader");
 
         if (loader) {
-            const alreadyShown = 
+            /*const alreadyShown = 
             sessionStorage.getItem("slowDesignLoaderPlayed") === "true";
+            */
 
+            const alreadyShown = false;
+
+            
             if (alreadyShown) {
-       
                 loader.classList.add("is-hidden");
-            } else {
+                document.body.classList.add("fv-animations-started")
+            } 
+            else {
                 sessionStorage.setItem("slowDesignLoaderPlayed", "true");
 
                 const percentText = loader.querySelector(".loader-percent");
@@ -347,22 +354,26 @@
                         requestAnimationFrame(updateProgress);
                     } else {
                         setTimeout(() => {
-                        loader.classList.add("is-revealing");
+                            loader.classList.add("is-revealing");
 
-                        setTimeout(()  => {
+                        setTimeout(() => {
                             loader.classList.add("is-hidden");
-                        }, 2000);
-                        }, 1300);
-                    }
+
+                            setTimeout(() => {
+                                document.body.classList.add("fv-animations-started");
+                            }, 2500);
+                        }, 2500);
+                    }, 1300);
                 }
-
-                requestAnimationFrame(updateProgress);
             }
+            requestAnimationFrame(updateProgress);
         }
+    }
 
 
-        
-        const aboutTexts = document.querySelectorAll(".advanced");
+
+
+    const aboutTexts = document.querySelectorAll(".advanced");
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -378,6 +389,27 @@
         aboutTexts.forEach((text) => {
             observer.observe(text);
         });
+    </script>
+
+
+    <script>
+        const serviceCards = document.querySelector(".service-cards");
+        const background = document.querySelector(".background");
+
+        function checkServiceCards() {
+            if (!serviceCards || !background) return;
+
+            const cardsPosition = serviceCards.getBoundingClientRect();
+            const cardsMiddle = cardsPosition.top + cardsPosition.height / 2;
+
+            if (cardsMiddle <= 0) {
+                background.classList.add("mist-hidden");
+                window.removeEventListener("scroll", checkServiceCards);
+            }
+        }
+
+        window.addEventListener("scroll", checkServiceCards, { passive: true });
+        checkServiceCards();
     </script>
 
 
