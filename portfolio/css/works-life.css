@@ -440,7 +440,7 @@ footer
 
 
 
-.detail-footer-nav {
+    .detail-footer-nav {
         width: calc(100% - 40px);
         gap: 8px;
         font-size: 16px;
@@ -448,7 +448,7 @@ footer
 
     .detail-allworks,
     .detail-home {
-        gap: 6px;
+        gap: 10px;
         white-space: nowrap;
     }
 
@@ -477,12 +477,12 @@ footer
     }
 
     .detail-home .arrow-home-icon {
-        left: 4px;
+        left: 2px;
         width: 24px;
     }
 
     .detail-home-icon::before {
-        left: 12px;
+        left: 10px;
     }
 
     .arrow-home-icon::before {
