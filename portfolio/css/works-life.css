@@ -157,7 +157,7 @@ footer
 .arrow-allworks-icon::before {
     position: absolute;
     top: 0;
-    left: o;
+    left: 0;
     width: 6px;
     height: 1px;
     border-radius: 9999px;
@@ -453,7 +453,15 @@ footer
         margin-left: 0;
     }
 
+     .detail-home-icon {
+        flex-basis: 34px;
+        height: 26px;
+    }
 
+    .detail-home .arrow-allworks-icon {
+        left: 8px;
+        width: 24px;
+    }
 /*
     .detail-footer {
         padding: 80px 0 20px;
