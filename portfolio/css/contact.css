@@ -479,7 +479,7 @@ contact title
     .delivery-steps {
         width: calc(100% - 80px);
         margin-inline: auto;
-        gap: 8px;
+        gap: 20px;
     }
 
     .delivery-steps li {

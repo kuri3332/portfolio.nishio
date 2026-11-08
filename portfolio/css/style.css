@@ -158,7 +158,7 @@ background
     z-index: 1;
     content: "";
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.25;
     mix-blend-mode: soft-light;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
 }
@@ -461,24 +461,44 @@ ABOUT
 .more-arrow::after {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+@media (hover: hover) and (pointer: fine) {
+    .more-button:hover,
+    .more-button:focus-visible {
+        transform: scale(1.05);
+        background-color: #7C8978;
+        color: #F2F0EC;
+    }
 
-.more-button:hover {
-    background-color: #7C8978;
-    color: #F2F0EC;
+    .more-button:hover .more-arrow {
+        background-color: #F2F0EC;
+    }
+    .more-button:hover .more-arrow::after {
+        border-color: #F2F0EC;
+    }
 }
 
-.more-button:hover .more-arrow {
-    background-color: #fff;
-}
-.more-button:hover .more-arrow::after {
-    border-color: #F2F0EC;
+@media (hover: none) and (pointer: coarse) {
+    .more-button:active {
+        transform: scale(1.05);
+        background-color: #7c8978;
+        color: #F2F0EC;
+    }
+
+    .more-button:active .more-arrow {
+        background-color: #F2F0EC;
+    }
+
+    .more-button:active .more-arrow::after {
+        border-color: #F2F0EC;
+    }
 }
 
+/*
 .more-button:hover,
 .more-button:focus-visible {
     transform: scale(1.05);
 }
-
+*/
 
 
 /*=============
