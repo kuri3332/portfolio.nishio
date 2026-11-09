@@ -88,16 +88,7 @@ footer
     margin-inline: auto;
     box-sizing: border-box;
 }
-/*
-.detail-footer-nav {
-    display: flex;
-    justify-content: space-between;
-    width: min(100% - 320px, 1080px);
-    margin: auto;
-    color: #7C8978;
-    font-size: 24px;
-}
-*/
+
 
 .detail-allworks,
 .detail-home {
@@ -136,13 +127,7 @@ footer
     border-color: currentColor;
     transition: border-color 0.3s ease;
 }
-/*
-.detail-allworks .arrow-allworks-icon,
-.detail-allworks .arrow-allworks-icon::before {
-    background-color: currentColor;
-    transition: background-color 0.3s ease;
-}
-*/
+
 
 /* 丸の中央から右に伸びる線 */
 .arrow-allworks-icon {
@@ -174,42 +159,6 @@ footer
     transition: background-color 0.3s ease;
 }
 
-/* Home 矢印 
-.detail-home {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #7C8978;
-    transition: color 0.3s ease;
-}
-
-.detail-home:hover,
-.detail-home:focus-visible {
-    color: #F2F0EC;
-}
-
-
-/*
-.detail-home-icon {
-    transform: scaleX(-1);
-}
-
-
-
-.detail-home-icon::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #7C8978;
-    border-radius: 50%;
-    content: "";
-    border-color: currentColor;
-    transition: border-color 0.3s ease;
-}
-*/
-
 .detail-home-icon::before {
     position: absolute;
     top: 0;
@@ -221,13 +170,6 @@ footer
     content: "";
     transition: border-color 0.3s ease;
 }
-/*
-.detail-home .arrow-home-icon,
-.detail-home .arrow-home-icon::before {
-    background-color: currentColor;
-    transition: background-color 0.3s ease;
-}
-*/
 
 
 /* 丸の中央から右に伸びる線 */
@@ -377,7 +319,6 @@ footer
 }
 
 .yuzu-gallery-title {
-    /*margin: 0 0 32px;*/
     font-size: 28px;
     font-weight: 400;
     text-align: center;
@@ -493,12 +434,7 @@ footer
         width: 34px;
         height: 26px;
     }
-/*
-    .detail-home .arrow-home-icon {
-        left: 2px;
-        width: 24px;
-    }
-*/
+
     .detail-home-icon::before {
         left: auto;
         right: 0;
@@ -523,32 +459,6 @@ footer
         box-sizing: border-box;
     }
 
-
-
-/*
-    .detail-footer {
-        padding: 80px 0 20px;
-    }
-
-    .detail-footer-nav {
-        width: calc(100% - 40px);
-        gap: 8px;
-        font-size: 16px;
-    }
-
-    .detail-allworks-icon {
-        height: 26px;
-    }
-
-    .arrow-allworks-icon {
-        left: 8px;
-    }
-
-    .detail-allworks-icon::before {
-        width: 24px;
-        height: 24px;
-    }
-*/
 
 
 

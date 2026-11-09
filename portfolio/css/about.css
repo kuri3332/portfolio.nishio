@@ -377,32 +377,42 @@ background
     content: "・";
 }
 
-
-/*=================
+/*===============
 footer
-=================*/
+===============*/
 .detail-footer {
     position: relative;
     z-index: 1;
     padding: 140px 0 28px;
 }
 
+
 .detail-footer-nav {
     display: flex;
-    justify-content: space-between;
-    width: min(100% - 320px, 1080px);
-    margin: 0 160px;
-    color: #7C8978;
-    font-size: 24px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    width: min(calc(100% - 40px), 800px);
+    margin-inline: auto;
+    box-sizing: border-box;
 }
 
-/* ==================
-左のAll Works の矢印　
-=====================*/
-.detail-allworks {
+
+.detail-allworks,
+.detail-home {
     display: flex;
     align-items: center;
     gap: 12px;
+    color: #7C8978;
+    transition: color 0.3s ease;
+}
+
+
+.detail-allworks:hover,
+.detail-allworks:focus-visible,
+.detail-home:hover,
+.detail-home:focus-visible {
+    color: #F2F0EC;
 }
 
 /* 丸の配置の要素 */
@@ -419,66 +429,6 @@ footer
     left: 0;
     width: 35px;
     height: 35px;
-    border: 1px solid #ACBBA7;
-    border-radius: 50%;
-    content: "";
-}
-
-/* 丸の中央から右に伸びる線 */
-.arrow-allworks-icon {
-    position: absolute;
-    top: 50%;
-    left: 17px;
-    width: 32px;
-    height: 1px;
-    border-radius: 9999px;
-    background-color: #acbba7;
-    transform: translateY(-50%);
-}
-
-/* 左向き矢印の上側の線 */
-.arrow-allworks-icon::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 1px;
-    border-radius: 9999px;
-    background-color: #acbba7;
-    content: "";
-    transform: rotate(-45deg);
-    transform-origin: 0.5px 50%;
-}
-
-
-/*=========
-右のHome 矢印
-============ */
-.detail-home {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: auto;
-  color: #7C8978;
-  transition: color 0.3s ease;
-}
-
-.detail-home:hover,
-.detail-home:focus-visible {
-    color: #F2F0EC;
-}
-
-
-.detail-home-icon {
-  transform: scaleX(-1);
-}
-
-.detail-allworks-icon::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35px;
-    height: 35px;
     border: 1px solid #7C8978;
     border-radius: 50%;
     content: "";
@@ -486,11 +436,6 @@ footer
     transition: border-color 0.3s ease;
 }
 
-.detail-home .arrow-allworks-icon,
-.detail-home .arrow-allworks-icon::before {
-    background-color: currentColor;
-    transition: background-color 0.3s ease;
-}
 
 /* 丸の中央から右に伸びる線 */
 .arrow-allworks-icon {
@@ -500,8 +445,10 @@ footer
     width: 32px;
     height: 1px;
     border-radius: 9999px;
-    background-color: #acbba7;
+    background-color: #7C8978;
     transform: translateY(-50%);
+    background-color: currentColor;
+    transition: background-color 0.3s ease;
 }
 
 /* 左向き矢印の上側の線 */
@@ -512,10 +459,51 @@ footer
     width: 6px;
     height: 1px;
     border-radius: 9999px;
-    background-color: #acbba7;
+    background-color: #7C8978;
     content: "";
     transform: rotate(-45deg);
     transform-origin: 0.5px 50%;
+    background-color: currentColor;
+    transition: background-color 0.3s ease;
+}
+
+.detail-home-icon::before {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #7C8978;
+    border-radius: 50%;
+    content: "";
+    transition: border-color 0.3s ease;
+}
+
+
+/* 丸の中央から右に伸びる線 */
+.arrow-home-icon {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    width: 32px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #7C8978;
+    transform: translateY(-50%);
+}
+
+/* 左向き矢印の上側の線 */
+.arrow-home-icon::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 1px;
+    border-radius: 9999px;
+    background-color: #7C8978;
+    content: "";
+    transform: rotate(45deg);
+    transform-origin: calc(100% - 0.5px) 50%;
 }
 
 
