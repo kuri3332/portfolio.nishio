@@ -111,7 +111,7 @@ footer
 
 .detail-allworks:hover,
 .detail-allworks:focus-visible,
-.detail-home::hover,
+.detail-home:hover,
 .detail-home:focus-visible {
     color: #F2F0EC;
 }
@@ -487,7 +487,8 @@ footer
     
 
      .detail-home-icon {
-        flex: 0 0 34px;
+        position: relative;
+        flex: 0 0 36px;
         height: 26px;
     }
 /*
@@ -504,7 +505,7 @@ footer
 
 
     .arrow-home-icon {
-        left: 2;
+        left: 0;
         width: 24px;
     }
 
@@ -519,10 +520,6 @@ footer
         box-sizing: border-box;
     }
 
-    .detail-footer .detail-home {
-        margin-right: 12px;
-        white-space: nowrp;
-    }
 
 
 /*
