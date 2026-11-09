@@ -513,7 +513,16 @@ footer
         right: 0;
     }
 
+    .detail-footer .detail-footer-nav {
+        width: calc(100% - 40px);
+        margin-inline: auto;
+        box-sizing: border-box;
+    }
 
+    .detail-footer .detail-home {
+        margin-right: 12px;
+        white-space: nowrp;
+    }
 
 
 /*
