@@ -461,6 +461,7 @@ footer
 
     .detail-home {
         justify-self: end;
+        margin-right: 0;
     }
 
     .detail-allworks,
@@ -488,7 +489,8 @@ footer
 
      .detail-home-icon {
         position: relative;
-        flex: 0 0 36px;
+        flex: 0 0 34px;
+        width: 34px;
         height: 26px;
     }
 /*
@@ -498,7 +500,8 @@ footer
     }
 */
     .detail-home-icon::before {
-        left: 10px;
+        left: auto;
+        right: 0;
         width: 24px;
         height: 24px;
     }
@@ -546,6 +549,16 @@ footer
         height: 24px;
     }
 */
+
+
+
+.detail-footer-nav { outline: 1px solid red; }
+.detail-home { outline: 1px solid blue; }
+.detail-home-icon { outline: 1px solid green; }
+
+
+
+
 
 
     .detail-contact-button {
