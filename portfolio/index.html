@@ -110,7 +110,67 @@
         </div>
     </section>
 
-    <!-- Works -->
+
+    <section class="works">
+        <h2 class="section-title works-title">Works</h2>
+
+        <div class="works-content">
+            <div class="works-slider">
+                <div class="works-track">
+                    <article class="works-slide is-active">
+                        <p class="works-category">Webdesign</p>
+                        <div class="works-image">
+                            <img src="images/mokup-04.png" alt="美容室 LIFE hair design のWebサイト">
+                        </div>
+                        <p class="works-caption">美容室「LIFE hair design」</p>
+                    </article>
+
+                    <article class="works-slide">
+                        <p class="works-category">Website</p>
+                        <div class="works-image">
+                            <img src="images/mokup-05.png" alt="カフェ DESIGN CAFE のWebサイト">
+                        </div>
+                        <p class="works-caption">カフェ「DESIGN CAFE」</p>
+                    </article>
+
+                    <article class="works-slide">
+                        <p class="works-category">Banner</p>
+                        <div class="works-image">
+                            <img src="images/mokup-01.png" alt="ハンバーガーショップの新商品広告バナー">
+                        </div>
+                        <p class="works-caption">ハンバーガーショップ 新商品広告バナー</p>
+                    </article>
+
+                    <article class="works-slide">
+                        <p class="works-category">Card / Logo</p>
+                        <div class="works-image">
+                            <img src="images/mokup-07.png" alt="Sauna resort YUZU のデザイン">
+                        </div>
+                        <p class="works-caption">Sauna resort「YUZU」</p>
+                    </article>
+                </div>
+            </div>
+
+            <nav class="works-dots" aria-label="作品スライド">
+                <button class="works-dot is-active" type="button"        aria-label="1つ目の作品を表示" aria-current="true"></button>
+                <button class="works-dot" type="button" aria-label="2つ目の作品を表示"></button>
+                <button class="works-dot" type="button" aria-label="3つ目の作品を表示"></button>
+                <button class="works-dot" type="button" aria-label="4つ目の作品を表示"></button>
+            </nav>
+
+            <a href="all-works.html" class="more-button works-more">and more
+                <span class="more-arrow" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Works 
     <section class="works">
         <h2 class="section-title works-title">Works</h2>
 
@@ -161,46 +221,10 @@
 
 
     </section>
+    -->
 
 
 
-
-    <!---
-    <section class="works">
-        <h2 class="section-title works-title">Works</h2>
-        <div class="works-content">
-            <div class="works-meta">
-                <div class="works-heading">
-
-                    <div class="works-types" aria-label="作品カテゴリー">
-                        <span>Webdesign</span>
-                        <span>Website</span>
-                        <span>Banner</span>
-                        <span>Card / Logo</span>
-                    </div>
-                </div>
-
-                <div class="works-image">
-                    <button class="works-arrow works-arrow-prev" type="button" 
-                    aria-label="前の作品"></button>
-
-                    <img 
-                        id="works-slide-image"
-                        src="images/mokup-04.png" 
-                        alt="美容室　LIFE design のWebサイト">
-
-                    <button class="works-arrow works-arrow-next" type="button" 
-                    aria-label="次の作品"></button>
-                </div>
-
-                <p class="works-caption" id="works-slide-caption">美容室「LIFE hair design」</p>
-
-                <a href="all-works.html" class="more-button works-more">and more<span class="more-arrow" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
-    </section>
--->
     <!--  Service -->
     <section class="service">
         <h2 class="section-title service-title">Service</h2>
@@ -275,6 +299,79 @@
     
 
     <script>
+        const worksTrack = document.querySelector(".works-track");
+        const worksDots = [...document.querySelectorAll(".works-dot")];
+
+        if (worksTrack && worksDots.length) {
+            const originalSlides = [...worksTrack.querySelectorAll(".works-slide")];
+
+            if (originalSlides.length > 0 && originalSlides.length === worksDots.length) {
+                const firstClone = originalSlides[0].cloneNode(true);
+                firstClone.classList.remove("is-active");
+                firstClone.setAttribute("aria-hidden", "true");
+                worksTrack.appendChild(firstClone);
+
+                let currentIndex = 0;
+                let autoSlide;
+
+                function updateDots(index) {
+                    const activeDotIndex = index % originalSlides.length;
+
+                    worksDots.forEach((dot, dotIndex) => {
+                        dot.classList.toggle("is-active", dotIndex === activeDotIndex);
+
+                        if (dotIndex === activeDotIndex) {
+                            dot.setAttribute("aria-current", "true");
+                        } else {
+                            dot.removeAttribute("aria-current");
+                        }
+                    });
+                }
+            
+                function showWorksSlide(index) {
+                    currentIndex = index;
+                    worksTrack.style.transform = `translateX(-${index * 100}%)`;
+                    updateDots(index);
+                }
+
+                worksTrack.addEventListener("transitionend", () => {
+                    if (currentIndex === originalSlides.length) {
+                        worksTrack.style.transition = "none";
+                        currentIndex = 0;
+                        worksTrack.style.transform = "translateX(0)";
+                        void worksTrack.offsetWidth;
+                        worksTrack.style.removeProperty("transition");
+                        updateDots(0);
+                    }
+                });
+
+                function startAutoSlide() {
+                    clearInterval(autoSlide);
+
+                    autoSlide = setInterval(() => {
+                        if (currentIndex === originalSlides.length - 1) {
+                            showWorksSlide(originalSlides.length);
+                    } else {
+                        showWorksSlide(currentIndex + 1);
+                    }
+
+                }, 5000);
+            }
+
+            worksDots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    showWorksSlide(index);
+                    startAutoSlide();
+                });
+            });
+
+            showWorksSlide(0);
+            startAutoSlide();
+        }
+    }
+
+
+
 
         /*
         const worksSlides = [
