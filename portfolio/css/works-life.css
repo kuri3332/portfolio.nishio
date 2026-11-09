@@ -84,7 +84,7 @@ footer
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    width: min(100% - 40px, 800px);
+    width: min(calc(100% - 40px), 800px);
     margin-inline: auto;
     box-sizing: border-box;
 }
@@ -99,7 +99,8 @@ footer
 }
 */
 
-.detail-allworks {
+.detail-allworks,
+.detail-home {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -109,7 +110,9 @@ footer
 
 
 .detail-allworks:hover,
-.detail-allworks:focus-visible {
+.detail-allworks:focus-visible,
+.detail-home::hover,
+.detail-home:focus-visible {
     color: #F2F0EC;
 }
 
@@ -133,13 +136,13 @@ footer
     border-color: currentColor;
     transition: border-color 0.3s ease;
 }
-
+/*
 .detail-allworks .arrow-allworks-icon,
 .detail-allworks .arrow-allworks-icon::before {
     background-color: currentColor;
     transition: background-color 0.3s ease;
 }
-
+*/
 
 /* 丸の中央から右に伸びる線 */
 .arrow-allworks-icon {
@@ -151,6 +154,8 @@ footer
     border-radius: 9999px;
     background-color: #7C8978;
     transform: translateY(-50%);
+    background-color: currentColor;
+    transition: background-color 0.3s ease;
 }
 
 /* 左向き矢印の上側の線 */
@@ -165,9 +170,11 @@ footer
     content: "";
     transform: rotate(-45deg);
     transform-origin: 0.5px 50%;
+    background-color: currentColor;
+    transition: background-color 0.3s ease;
 }
 
-/* Home 矢印 */
+/* Home 矢印 
 .detail-home {
     display: flex;
     align-items: center;
@@ -204,8 +211,7 @@ footer
 */
 
 .detail-home-icon::before {
-    border-color: currentColor;
-        position: absolute;
+    position: absolute;
     top: 0;
     left: 16px;
     width: 35px;
@@ -213,22 +219,22 @@ footer
     border: 1px solid #7C8978;
     border-radius: 50%;
     content: "";
-    border-color: currentColor;
     transition: border-color 0.3s ease;
 }
-
+/*
 .detail-home .arrow-home-icon,
 .detail-home .arrow-home-icon::before {
     background-color: currentColor;
     transition: background-color 0.3s ease;
 }
+*/
 
 
 /* 丸の中央から右に伸びる線 */
 .arrow-home-icon {
     position: absolute;
     top: 50%;
-    left: 4px;
+    left: 1px;
     width: 32px;
     height: 1px;
     border-radius: 9999px;
@@ -240,7 +246,7 @@ footer
 .arrow-home-icon::before {
     position: absolute;
     top: 0;
-    left: 26px;
+    right: 0;
     width: 6px;
     height: 1px;
     border-radius: 9999px;
@@ -441,9 +447,20 @@ footer
 
 
     .detail-footer-nav {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         width: calc(100% - 40px);
+        margin-inline: auto;
         gap: 8px;
         font-size: 16px;
+    }
+
+    .detail-allworks {
+        justify-self: start;
+    }
+
+    .detail-home {
+        justify-self: end;
     }
 
     .detail-allworks,
@@ -467,26 +484,33 @@ footer
         width: 24px;
     }
 
-    .detail-home {
-        margin-left: 0;
-    }
+    
 
      .detail-home-icon {
-        flex-basis: 34px;
+        flex: 0 0 34px;
         height: 26px;
     }
-
+/*
     .detail-home .arrow-home-icon {
         left: 2px;
         width: 24px;
     }
-
+*/
     .detail-home-icon::before {
         left: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+
+    .arrow-home-icon {
+        left: 2;
+        width: 24px;
     }
 
     .arrow-home-icon::before {
-        left: 18px;
+        left: auto;
+        right: 0;
     }
 
 
