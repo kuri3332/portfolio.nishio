@@ -495,152 +495,6 @@ ABOUT
 
 
 
-/*=============
-works
-==============
-.works {
-    position: relative;
-    margin-top: 240px;
-}
-
-.works-title {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    margin: 0;
-    color: #fbfbfb;
-    font-size: 64px;
-    font-weight: 400;
-    line-height: 1;
-    writing-mode: vertical-rl;
-}
-
-.works-content {
-    width: min(800px, calc(100% - 64px));
-    margin-inline: auto;
-}
-
-.works-mate {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.works-track {
-    width: min(650px, 100%);
-    margin-left: 6vw;
-    display: flex;
-    box-sizing: border-box;
-    gap: 16px;
-    overflow-x: auto;
-    padding: 0 7% 20px;
-    scroll-padding-inline: 8%;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    scrollbar-width: thin;
-    scrollbar-color: #7c8978 transparent;
-}
-
-.works-track::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 10px;
-    margin-inline: 80%;
-}
-
-.works-track::-webkit-scrollbar-thumb {
-    background: #7C8978;
-    border-radius: 10px;
-}
-
-.works-slide {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-}
-
-.works-category {
-    margin: 0 0 12px;
-    color: #444d3f;
-    font-family: "Antic Didone", serif;
-    font-size: 32px;
-    font-weight: 400;
-}
-
-.works-image {
-    display: grid;
-    min-height: 240px;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.works-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.works-caption {
-    margin: 12px 0 0;
-    text-align: right;
-}
-
-.works-more {
-    justify-content: flex-start;
-    margin: 42px 0 0 auto;
-    align-self: flex-end;
-}
-
-*/
-
-/* スライダー矢印 
-.works-arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    transform: translateY(-50%) rotate(45deg);
-}
-
- 矢印の2本の線 
-.works-arrow::before,
-.works-arrow::after {
-    position: absolute;
-    content: "";
-    background: #fff;
-}
-
-/横線 
-.works-arrow::before {
-    width: 28px;
-    height: 1px;
-}
-縦線 
-.works-arrow::after {
-    width: 1px;
-    height: 28px;
-}
-
- 左向き 
-.works-arrow-prev {
-    left: 32px;
-    transform: translateY(-50%) rotate(-45deg);
-}
-
- 右向き 
-.works-arrow-next {
-    right: 32px;
-    transform: translateY(-50%) rotate(135deg);
-}
-*/
-
-
-
 /*==============
 Works slider
 ================*/
@@ -767,26 +621,6 @@ Works slider
     transform: rotate(45deg);
 }
 
-/*
-.works-arrow-prev {
-    left: 24px;
-}
-
-.works-arrow-next {
-    right: 24px;
-}
-
-.works-caption {
-    margin: 12px 0 0;
-    text-align: right;
-}
-
-.works-more {
-    position: relative;
-    margin-top: 42px;
-    margin-right: 0;
-}
-*/
 /*==========
 Service
 ==========*/
@@ -1170,8 +1004,50 @@ body.home-page.fv-animations-started .menu-button {
 }
 
 
+/* カーソル：PCのみ */
+.cursor {
+    display: none;
+}
 
+@media (hover: hover) and (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor a,
+    html.has-custom-cursor button {
+        cursor: none;
+    }
 
+    .cursor {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .cursor.is-visible {
+        opacity: 1;
+    }
+
+/*　カーソル本体 ローディングバー先端と同じ光の玉 */
+    .cursor__glow {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+             #7c8978 0%,
+             rgba(124, 137, 120, 0.85) 24%,
+             rgba(124, 137, 120, 0.5) 48%,
+             rgba(124, 137, 120, 0.15) 76%,
+             rgba(124, 137, 120, 0.0) 100%
+        );
+        filter: blur(2px); 
+        transform: translate(-50%, -50%);
+    }
+}
 
 
 
@@ -1363,99 +1239,6 @@ body.home-page.fv-animations-started .menu-button {
 } 
 
 
-
-/*
-    .works-track {
-        gap: 12px;
-        padding-inline: 6%;
-        scroll-padding-inline: 6%;
-    }
-
-    .works-slide {
-        flex-basis: 88%;
-    }
-
-    .works-category {
-        font-size: 20px;
-    }
-
-    .works-image {
-        min-height: 130px;
-    }
-
-    .works-image img {
-        width: 90%;
-    }
-
-    .works-title {
-        position: absolute;
-        left: -23px;
-        font-size: 20vw;
-        z-index: 0;
-    }
-
-    .works-caption {
-        font-size: 14px;
-    }
-
-    .works-track {
-        margin-left: 4vw;
-    }
-/*
-    .works {
-        margin-top: 140px;
-    }
-
-    .works-title {
-        position: absolute;
-        left: -23px;
-        font-size: 20vw;
-    }
-
-    .works-content {
-        padding-top: 24px;
-    }
-
-    .works-types {
-    gap: 16px;
-    }
-
-    .works-types span {
-    font-size: 12px;
-    }
-
-    .works-types span.is-active {
-    font-size: 16px;
-    }
-
-    .worka-content {
-        width: calc(100% - 80px);
-    }
-    
-    .works-image {
-        min-height: 0;
-    }
-
-    .works-image img {
-        width: 100%;
-    }
-
-    .works-more {
-        margin: 42px auto 0;
-    }
-
-    .works-arrow::before {
-        width: 13px
-    }
-
-    .works-arrow::after {
-    height: 13px;
-    }
-
-    .works-more {
-        margin: 100px auto 0;
-}
-*/
 /* service */
     .service-title {
         left: -23px;

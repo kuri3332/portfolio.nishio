@@ -166,65 +166,6 @@
 
 
 
-
-
-
-
-    <!-- Works 
-    <section class="works">
-        <h2 class="section-title works-title">Works</h2>
-
-        <div class="works-content">
-            <div class="works-meta">
-
-                <div class="works-track">
-
-                    <article class="works-slide">
-                        <p class="works-category">Webdesign</p>
-                        <div class="works-image">
-                            <img src="images/mokup-04.png" alt="美容室 LIFE hair design のWebサイト">
-                        </div>
-                        <p class="works-caption">美容室 「LIFE hair design」</p>
-                    </article>
-
-                    <article class="works-slide">
-                        <p class="works-category">Website</p>
-                        <div class="works-image">
-                            <img src="images/mokup-05.png" alt="カフェ DESIGN CAFE のWebサイト">
-                        </div>
-                        <p class="works-caption">カフェ 「DESIGN CAFE」</p>
-                    </article>
-
-                    <article class="works-slide">
-                        <p class="works-category">Banner</p>
-                        <div class="works-image">
-                            <img src="images/mokup-01.png" alt="ハンバーガーショップの新商品広告バナー">
-                        </div>
-                        <p class="works-caption">ハンバーガーショップ　新商品広告バナー</p>
-                    </article>
-
-                    <article class="works-slide">
-                        <p class="works-category">Card / logo</p>
-                        <div class="works-image">
-                            <img src="images/mokup-07.png" alt="Sauna resort YUZU のデザイン">
-                        </div>
-                        <p class="works-caption">Sauna resort 「YUZU」</p>
-                    </article>
-                </div>
-
-                <a href="all-works.html" class="more-button works-more">
-                    and more<span class="more-arrow" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
-
-
-
-    </section>
-    -->
-
-
-
     <!--  Service -->
     <section class="service">
         <h2 class="section-title service-title">Service</h2>
@@ -373,73 +314,6 @@
 
 
 
-        /*
-        const worksSlides = [
-            {
-                src: "images/mokup-04.png",
-                alt: "美容室 「LIFE hair design design」",
-                caption: "美容室「LIFE hair design 」",
-                category: "Webdesign"
-            },
-            {
-                src: "images/mokup-05.png",
-                alt: "カフェ DESIGN CAFE のWebサイト",
-                caption: "カフェ 「DESIGN CAFE」",
-                category: "Website"
-            },
-            {
-                src: "images/mokup-01.png",
-                alt: "ハンバーガーショップの新商品広告バナー",
-                caption: "ハンバーガーショップ 新商品広告バナー",
-                category: "Banner"
-            },
-            {
-                src: "images/mokup-07.png",
-                alt: "Sauna resort YUZU",
-                caption: "Sauna resort 「YUZU」",
-                category: "Card / Logo"
-            }
-        ];
-
-        let currentWorksIndex = 0;
-
-        const worksImage = document.querySelector("#works-slide-image");
-        const worksCaption = document.querySelector("#works-slide-caption");
-        const prevButton = document.querySelector(".works-arrow-prev");
-        const nextButton = document.querySelector(".works-arrow-next");
-        const worksTypes = document.querySelectorAll(".works-types span");
-    
-
-        function showWorksSlide(index) {
-            worksImage.src = worksSlides[index].src;
-            worksImage.alt = worksSlides[index].alt;
-            worksCaption.textContent = worksSlides[index].caption;
-            
-            worksTypes.forEach((type) => {
-                type.classList.toggle(
-                    "is-active",
-                    type.textContent.trim() === worksSlides[index].category
-                );
-            });
-        }
-
-        showWorksSlide(currentWorksIndex);
-
-        prevButton.addEventListener("click", () => {
-            currentWorksIndex =
-                (currentWorksIndex - 1 + worksSlides.length) % worksSlides.length;
-                showWorksSlide(currentWorksIndex);
-        });
-
-        nextButton.addEventListener("click", () => {
-            currentWorksIndex = 
-                (currentWorksIndex + 1) % worksSlides.length;
-            showWorksSlide(currentWorksIndex);
-        });
-*/
-
-
-
         document.documentElement.classList.add("js");
 
         const textElements = document.querySelectorAll(".text-reveal");
@@ -467,8 +341,6 @@
             const alreadyShown = 
             sessionStorage.getItem("slowDesignLoaderPlayed") === "true";
             
-            
-            /*const alreadyShown = false;  */
 
 
             if (alreadyShown) {
@@ -566,7 +438,29 @@
         checkServiceCards();
     </script>
 
+<!-- カーソル -->
+    <div class="cursor" aria-hidden="true">
+        <span class="cursor__glow"></span>
+    </div>
 
+    <script>
+        const cursor = document.querySelector(".cursor");
 
+        if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const glow = cursor.querySelector(".cursor__glow");
+
+            document.documentElement.classList.add("has-custom-cursor");
+
+            document.addEventListener("mousemove", (event) => {
+                glow.style.left = `${event.clientX}px`;
+                glow.style.top = `${event.clientY}px`;
+                cursor.classList.add("is-visible");
+            });
+
+            document.addEventListener("mouseleave", () => {
+                cursor.classList.remove("is-visible");
+            });
+        }
+    </script>
 </body>
 </html>
