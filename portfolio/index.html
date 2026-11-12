@@ -76,7 +76,7 @@
                 <p class="fv-copy-sub">一緒に。</p>
             </div>
 
-    <!-- スクロールダウン -->
+<!-- スクロールダウン -->
     <!--  <div class="scroll-area"> -->
                 <div class="scroll">
                     <div class="scroll-text">scroll down</div>
@@ -92,7 +92,7 @@
             </div>
         </section>
 
-    <!-- about -->
+<!-- about -->
     <section class="about">
         <h2 class="section-title about-title">About</h2>
         <div class="about-content">
@@ -110,7 +110,7 @@
         </div>
     </section>
 
-
+<!-- Works -->
     <section class="works">
         <h2 class="section-title works-title">Works</h2>
 
@@ -120,7 +120,9 @@
                     <article class="works-slide is-active">
                         <p class="works-category">Webdesign</p>
                         <div class="works-image">
-                            <img src="images/mokup-04.png" alt="美容室 LIFE hair design のWebサイト">
+                            <a class="works-link works-card" href="all-works.html#web-design" aria-label="美容室「LIFE hair design」の詳細を見る">
+                                <img src="images/mokup-04.png" alt="美容室 LIFE hair design のWebサイト">
+                            </a>
                         </div>
                         <p class="works-caption">美容室「LIFE hair design」</p>
                     </article>
@@ -128,7 +130,9 @@
                     <article class="works-slide">
                         <p class="works-category">Website</p>
                         <div class="works-image">
-                            <img src="images/mokup-05.png" alt="カフェ DESIGN CAFE のWebサイト">
+                            <a class="works-link works-card" href="all-works.html#website" aria-label="カフェ DESIGN CAFE Webサイトの詳細を見る">
+                                <img src="images/mokup-05.png" alt="カフェ DESIGN CAFE のWebサイト">
+                            </a>
                         </div>
                         <p class="works-caption">カフェ「DESIGN CAFE」</p>
                     </article>
@@ -136,7 +140,9 @@
                     <article class="works-slide">
                         <p class="works-category">Banner</p>
                         <div class="works-image">
-                            <img src="images/mokup-01.png" alt="ハンバーガーショップの新商品広告バナー">
+                            <a class="works-link works-card" href="all-works.html#banner" aria-label="ハンバーガーショップ 新商品広告バナーの詳細を見る">
+                                <img src="images/mokup-01.png" alt="ハンバーガーショップの新商品広告バナー">
+                            </a>
                         </div>
                         <p class="works-caption">ハンバーガーショップ 新商品広告バナー</p>
                     </article>
@@ -144,7 +150,9 @@
                     <article class="works-slide">
                         <p class="works-category">Card / Logo</p>
                         <div class="works-image">
-                            <img src="images/mokup-07.png" alt="Sauna resort YUZU のデザイン">
+                            <a class="works-link works-card" href="all-works.html#card-logo" aria-label="Sauna resort YUZU card/lodoのデザインの詳細を見る">
+                                <img src="images/mokup-07.png" alt="Sauna resort YUZU のデザイン">
+                            </a>
                         </div>
                         <p class="works-caption">Sauna resort「YUZU」</p>
                     </article>
@@ -257,6 +265,20 @@
 
                 function updateDots(index) {
                     const activeDotIndex = index % originalSlides.length;
+
+                    const worksSlider = document.querySelector(".works-slider");
+
+                    if (worksSlider) {
+                        worksSlider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+                        worksSlider.addEventListener("mouseleave", () => startAutoSlide());
+
+                        worksSlider.addEventListener("focusin", () => clearInterval(autoSlide));
+                        worksSlider.addEventListener("focusout", (event) => {
+                            if (!worksSlider.contains(event.relatedTarget)) {
+                                startAutoSlide();
+                            }
+                        });
+                    }
 
                     worksDots.forEach((dot, dotIndex) => {
                         dot.classList.toggle("is-active", dotIndex === activeDotIndex);
@@ -417,30 +439,52 @@
         });
     </script>
 
-
+<!-- サービスカード -->
     <script>
         const serviceCards = document.querySelector(".service-cards");
         const background = document.querySelector(".background");
+        let isMistHidden = false;
+        let ticking = false;
 
-        function checkServiceCards() {
+        function updateMist() {
+            ticking = false;
             if (!serviceCards || !background) return;
 
-            const cardsPosition = serviceCards.getBoundingClientRect();
-            const cardsMiddle = cardsPosition.top + cardsPosition.height / 2;
+            const cardsRect = serviceCards.getBoundingClientRect();
+            const cardsMiddle = cardsRect.top + cardsRect.height / 2;
+            const distanceToBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
 
-            if (cardsMiddle <= 0) {
+            const shouldHide = window.scrollY > 0 && (cardsMiddle <= 0 || distanceToBottom <= 10);
+
+            const shouldShow = cardsMiddle > 80 && distanceToBottom > 80;
+
+            if (!isMistHidden && shouldHide) {
+                isMistHidden = true;
                 background.classList.add("mist-hidden");
-                window.removeEventListener("scroll", checkServiceCards);
+            } else if (isMistHidden && shouldShow) {
+                isMistHidden = false;
+                background.classList.remove("mist-hidden");
             }
         }
 
-        window.addEventListener("scroll", checkServiceCards, { passive: true });
-        checkServiceCards();
+        function requestMistUpdate() {
+            if(ticking) return;
+            ticking = true;
+            requestAnimationFrame(updateMist);
+        }
+
+        window.addEventListener("scroll", requestMistUpdate, { passive: true });
+        window.addEventListener("resize", requestMistUpdate);
+        window.addEventListener("load", requestMistUpdate);
+        updateMist();
+
     </script>
 
 <!-- カーソル -->
     <div class="cursor" aria-hidden="true">
-        <span class="cursor__glow"></span>
+        <span class="cursor__glow">
+            <span class="cursor__label">詳細を見る</span>
+        </span>
     </div>
 
     <script>
@@ -448,6 +492,8 @@
 
         if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
             const glow = cursor.querySelector(".cursor__glow");
+            const buttonSelector = ".more-button, .contact-button, .menu-button, .menu-close, .menu-nav a, .detail-contact-button, .c-form__submit, .thanks-home-button";
+            const workSelector = ".works-card";
 
             document.documentElement.classList.add("has-custom-cursor");
 
@@ -457,8 +503,17 @@
                 cursor.classList.add("is-visible");
             });
 
+            // 作品カード上は大きい玉、ボタン上は #F2F0EC の玉
+            document.addEventListener("mouseover", (event) => {
+                const onWork = !!event.target.closest(workSelector);
+                const onButton = !onWork && !!event.target.closest(buttonSelector);
+
+                cursor.classList.toggle("is-on-work", onWork);
+                cursor.classList.toggle("is-on-button", onButton);
+            });
+
             document.addEventListener("mouseleave", () => {
-                cursor.classList.remove("is-visible");
+                cursor.classList.remove("is-visible", "is-on-button", "is-on-work");
             });
         }
     </script>

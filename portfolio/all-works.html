@@ -91,7 +91,7 @@
                     <div class="zoom-box">
                         <img src="images/mokup-06.png" alt="コワークングスペース WORKERS のWebサイト">
                     </div>
-                    <p>コワークングスペース「WORKERS」様</p>
+                    <p>コワーキングスペース「WORKERS」様</p>
                     <small>ツール：Figma</small>
                 </a>
             </div>
@@ -118,8 +118,7 @@
             <div class="works-grid">
                 <a class="works-card" href="works-hamburger.html">
                     <div class="zoom-box">
-                        <img src="images/mokup-01.png" alt="ハンバーガーショップ
-                        新商品広告バナー">
+                        <img src="images/mokup-01.png" alt="ハンバーガ-ショップ 新商品広告バナー">
                     </div>
                     <p>ハンバーガーショップ　新商品広告バナー</p>
                     <small>ツール：Illustrator</small>
@@ -151,7 +150,7 @@
                     <div class="zoom-box">
                         <img src="images/mokup-07.png" alt="Sauna resort YUZUのロゴとカード">
                     </div>
-                    <p>Sauna resot 「YUZU」</p>
+                    <p>Sauna resort 「YUZU」</p>
                     <small>ツール：Illustrator</small>
                 </a>
             </div>
@@ -172,7 +171,7 @@
             </a>
         </nav>
 
-        <a class="detail-contact-button" href="index.html#contact">お問い合わせはこちら</a>
+        <a class="detail-contact-button" href="contact.html">お問い合わせはこちら</a>
 
         <small class="detail-copyright">&copy;2026 SLOW DESIGN</small>
     </footer>
@@ -189,5 +188,44 @@
             categoryMenu.classList.toggle("is-open", !isOpen);
         });
     </script>
+
+
+<!-- カーソル -->
+    <div class="cursor" aria-hidden="true">
+        <span class="cursor__glow">
+            <span class="cursor__label">詳細を見る</span>
+        </span>
+    </div>
+    <script>
+        const cursor = document.querySelector(".cursor");
+
+        if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const glow = cursor.querySelector(".cursor__glow");
+            const buttonSelector = ".more-button, .contact-button, .menu-button, .menu-close, .menu-nav a, .detail-contact-button, .c-form__submit, .thanks-home-button";
+            const workSelector = ".works-card";
+
+            document.documentElement.classList.add("has-custom-cursor");
+
+            document.addEventListener("mousemove", (event) => {
+                glow.style.left = `${event.clientX}px`;
+                glow.style.top = `${event.clientY}px`;
+                cursor.classList.add("is-visible");
+            });
+
+            // 作品カード上は大きい玉、ボタン上は #F2F0EC の玉 //
+            document.addEventListener("mouseover", (event) => {
+                const onWork = !!event.target.closest(workSelector);
+                const onButton = !onWork && !!event.target.closest(buttonSelector);
+
+                cursor.classList.toggle("is-on-work", onWork);
+                cursor.classList.toggle("is-on-button", onButton);
+            });
+
+            document.addEventListener("mouseleave", () => {
+                cursor.classList.remove("is-visible", "is-on-button", "is-on-work");
+            });
+        }
+    </script>
+    
 </body>
 </html>

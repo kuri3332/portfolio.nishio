@@ -111,6 +111,40 @@
         <small class="detail-copyright">&copy;2026 SLOW DESIGN</small>
     </footer>
 
-    
+
+<!-- カーソル -->
+    <div class="cursor" aria-hidden="true">
+        <span class="cursor__glow">
+            <span class="cursor__label">詳細を見る</span>
+        </span>
+    </div>
+<script>
+        const cursor = document.querySelector(".cursor");
+
+        if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const glow = cursor.querySelector(".cursor__glow");
+            const buttonSelector = ".more-button, .contact-button, .menu-button, .menu-close, .menu-nav a, .detail-contact-button, .c-form__submit, .thanks-home-button";
+
+            document.documentElement.classList.add("has-custom-cursor");
+
+            document.addEventListener("mousemove", (event) => {
+                glow.style.left = `${event.clientX}px`;
+                glow.style.top = `${event.clientY}px`;
+                cursor.classList.add("is-visible");
+            });
+
+            // ボタン上だけ色を切り替える //
+            document.addEventListener("mouseover", (event) => {
+                cursor.classList.toggle("is-on-button", !!event.target.closest(buttonSelector));
+            });
+
+            document.addEventListener("mouseleave", () => {
+                cursor.classList.remove("is-visible");
+                cursor.classList.remove("is-on-button");
+            });
+        }
+    </script>    
+
+
 </body>
 </html>

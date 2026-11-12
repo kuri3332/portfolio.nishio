@@ -171,7 +171,15 @@ background
     letter-spacing: 0.6em;
 
     cursor: pointer;
-    
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s, border-color 0.3s ease;
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+    background-color: #7C8978;
+    border-color: #7C8978;
+    color: #F2F0EC;
 }
 
 .menu-button span {
@@ -421,6 +429,78 @@ contact title
     text-align: center;
 }
 
+
+
+/* カーソル：PCのみ */
+.cursor {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor a,
+    html.has-custom-cursor button {
+        cursor: none;
+    }
+
+    .cursor {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .cursor.is-visible {
+        opacity: 1;
+    }
+
+/*　カーソル本体 ローディングバー先端と同じ光の玉 */
+    .cursor__glow {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    .cursor__glow::before,
+    .cursor__glow::after {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        filter: blur(2px);
+        content: "";
+        transition: opacity 0.3s ease;
+    }
+/* 通常:緑 */
+    .cursor__glow::before {
+        background: radial-gradient(
+            circle,
+            #7c8978 0%,
+            rgba(124, 137, 120, 0.85) 24%,
+            rgba(124, 137, 120, 0.5) 48%,
+            rgba(124, 137, 120, 0.15) 76%,
+            rgba(124, 137, 120, 0) 100%
+        );
+    }
+/* ボタン上:#F2F0EC(通常は透明) */
+    .cursor__glow::after {
+        background: radial-gradient(
+            circle,
+            #F2F0EC 0%,
+            rgba(242, 240, 236, 0.85) 24%,
+            rgba(242, 240, 236, 0.5) 48%,
+            rgba(242, 240, 236, 0.15) 76%,
+            rgba(242, 240, 236, 0) 100%
+        );
+        opacity: 0;
+    }
+
+    .cursor.is-on-button .cursor__glow::before { opacity: 0; }
+    .cursor.is-on-button .cursor__glow::after { opacity: 1; }
+}
 
 
 /* sp */
